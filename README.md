@@ -2,7 +2,11 @@
 
 git init --bare $HOME/.dotfiles
 
+### add alias
+``` alias cfg='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME' ```
 
-alias cfg='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-git clone --bare https://github.com/anrawines/dotfiles/ $HOME/.dotfiles
-config checkout
+clone
+``` git clone --bare https://github.com/anrawines/dotfiles/ $HOME/.dotfiles ```
+
+and
+``` config checkout ```
