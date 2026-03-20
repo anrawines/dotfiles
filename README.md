@@ -1,12 +1,20 @@
 ## dotfiles using gitbare
 
+````bash
 git init --bare $HOME/.dotfiles
+````
 
 ### add alias
-``` alias cfg='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME' ```
+````bash
+alias cfg='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME' 
+````
 
-clone
-``` git clone --bare https://github.com/anrawines/dotfiles/ $HOME/.dotfiles ```
+### clone
+````bash 
+git clone --bare https://github.com/anrawines/dotfiles/ $HOME/.dotfiles
+````
 
-and
-``` config checkout ```
+### checkout
+````bash
+cfg checkout 
+````
