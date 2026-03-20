@@ -1,0 +1,66 @@
+MINIMAL INSTALL LINUX
+tty ctrl + alt + f1 .. f6
+
+Tahap 1: Fondasi Sistem (Core)
+	install video driver ~ mesa 
+	install network manager ~ networkmanager
+	install fonts ~ ttf-jetbrains-mono-nerd , noto-fonts
+	
+Tahap 2: Lapisan Grafis & Input (Display)
+	install display server ~ x org or wayland
+	install display manager ~ lightdm 
+	install window manager ~ i3 / sway
+
+Tahap 3: Service Pendukung (Background Daemons)
+	install polkit agent ~ lxsession / polkit-gnome
+	install notification daemon ~ dunst / mako 
+	install compositor ~ picom
+	install audiomanager ~ pulseaudio / pipewire & pipewire-pulse
+	install usb mounter ~ udiskie
+	install shortcut manager ~ sxhkd
+
+Tahap 4: Personalisasi & App (Frontend)
+	Appearance
+		gtk manager : lxappearance
+		qt manager : qt5ct , qt6ct
+	Bar & Wallpaper
+		topbar ~ polybar, waybar
+		img backround  : feh
+	User Apps
+		file manager  : thunar / pcmanfm
+		 terminal         : wezterm, st, foot
+		launcher        : rofi / wofi
+		Bluetooth (Opsional) : bluez & bluez-utils
+		nightlight :
+		brightness:
+		weather :
+		Screen Locking and Idle Management:
+		calendar : eww
+		  clipboard manager : copyq / clipman
+		  brightness controller : brightnessctl/light
+		  archive manager : file-roller/engrampa
+		  
+cli app:
+		tools: fastfetch, curl, get, zoxide, bat, 
+		pgrep ( toogle script )	//https://www.youtube.com/watch?v=eBzDiBAcIFo&list=PL5--8gKSku15YdkGmHjW2A31oPaQ5pEUw
+		music player : Music On Console (moc)/ cmus
+
+ tui app:
+		tools : btop, ncdu
+		fileman : lf, yazi, ranger, file manager
+		music player:  mpd (server) + ncmpcpp/mpc -> rmpc (client), Musikcube
+		showoff : cava, figlet, tty-clock
+		package manager : pacseek
+		
+		
+-GUI APP
+		  image viewer : viewnior/nsxiv/sxiv
+		  music player : audacious/ DeaDBeeF 
+		  volume control : pavucontrol / pulsemixer
+		  pdf : zathura/evince
+ 		  media player  : mpv
+		  browser    : firefox
+		  text editor  : geany, vim, micro
+		  screenshot : flameshot/maim/scrot
+		  calc : Qalculate!
+  

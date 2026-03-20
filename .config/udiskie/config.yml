@@ -1,0 +1,22 @@
+program_options:
+  tray: true
+  notify: true
+  automount: true
+  file_manager: xdg-open
+
+device_config:
+  # Media drive
+  - id_uuid: "96E2F47DE2F46343"
+    options: ["noexec", "nodev"]
+    ignore: false
+    automount: false
+    
+  # Data drive
+  - id_uuid: "326480E66480AE63"
+    options: ["noexec", "nodev"]
+    ignore: false
+    automount: false
+
+notifications:
+  timeout: 1.5
+  device_mounted: 5

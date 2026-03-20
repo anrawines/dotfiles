@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+<action>
+	<icon>color-mode-invert-image</icon>
+	<name>Convert To JPEG</name>
+	<submenu></submenu>
+	<unique-id>1771707376115345-1</unique-id>
+	<command>magick %f -quality 85 $(baseename %n.png).jpeg</command>
+	<description>compress 85%</description>
+	<range></range>
+	<patterns>*.jpg,*.png</patterns>
+	<startup-notify/>
+	<directories/>
+	<image-files/>
+</action>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>Open Terminal Here</name>
+	<submenu></submenu>
+	<unique-id>1766193393607523-1</unique-id>
+	<command>wezterm start --cwd %f</command>
+	<description>Example for a custom action</description>
+	<range></range>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+</action>
+</actions>

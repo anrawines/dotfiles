@@ -1,0 +1,164 @@
+#![enable(implicit_some)]
+#![enable(unwrap_newtypes)]
+#![enable(unwrap_variant_newtypes)]
+(
+    default_album_art_path: None,
+    draw_borders: false,
+    show_song_table_header: false,
+    symbols: (song: "🎵", dir: "📁", playlist: "🎼", marker: "\u{e0b0}"),
+    layout: Split(
+        direction: Vertical,
+        panes: [
+            (
+                pane: Pane(Header),
+                size: "1",
+            ),
+            (
+                pane: Pane(TabContent),
+                size: "100%",
+            ),
+            (
+                pane: Pane(ProgressBar),
+                size: "1",
+            ),
+        ],
+    ),
+    progress_bar: (
+        symbols: ["", "", "󰮯", "", ""],
+        track_style: (bg: "#1e2030"),
+        elapsed_style: (fg: "#c6a0f6", bg: "#1e2030"),
+        thumb_style: (fg: "#c6a0f6", bg: "#1e2030"),
+    ),
+    scrollbar: (
+        symbols: ["│", "█", "▲", "▼"],
+        track_style: (),
+        ends_style: (),
+        thumb_style: (fg: "#b7bdf8"),
+    ),
+    cava: (
+    // symbols that will be used to draw the bar in the visualiser, in ascending order of
+    // fill fraction
+    bar_symbols: ['▁', '▂', '▃', '▄', '▅', '▆', '▇', '█'],
+    
+    bg_color: "black", // background color, defaults to rmpc's bg color if not provided
+    bar_width: 1, // width of a single bar in columns
+    bar_spacing: 1, // free space between bars in columns
+
+    // Possible values are "Top", "Bottom" and "Horizontal". Top makes the bars go from top to
+    // bottom, "Bottom" is from bottom up, and "Horizontal" is split in the middle with bars going
+    // both down and up from there.
+    // Using non-default symbols with "Top" and "Horizontal" may produce undesired output.
+    orientation: Bottom,
+
+    // Colors can be configured in three different ways: a single color, different colors
+    // per row and a gradient. You can use the same colors as everywhere else. Only specify
+    // one of these:
+
+    // A simple color gradient. This is a map where keys are percent values of the height
+    // where the color starts. After that it is linearly interpolated towards the next value.
+    // In this example, the color will start at green for the lowest amplitudes, go towards
+    // blue at half amplitudes and finishing as red for the highest values. Keys must be between
+    // 0 and 100 and if the first or last key are not 0 and 100 respectively, the lowest and highest
+    // value will be used as 0 and 100. Only hex and RGB colors are supported here and your terminal
+    // must support them as well!
+    bar_color: Gradient({
+          0: "rgb(  0, 255,   0)",
+         50: "rgb(  0,   0, 255)",
+        100: "rgb(255,   0,   0)",
+    })
+	),
+    browser_column_widths: [20, 38, 42],
+    text_color: "#cad3f5",
+    background_color: "#24273a",
+    header_background_color: "#1e2030",
+    modal_background_color: None,
+    modal_backdrop: false,
+    tab_bar: (active_style: (fg: "black", bg: "#c6a0f6", modifiers: "Bold"), inactive_style: ()),
+    borders_style: (fg: "#6e738d"),
+    highlighted_item_style: (fg: "#c6a0f6", modifiers: "Bold"),
+    current_item_style: (fg: "black", bg: "#b7bdf8", modifiers: "Bold"),
+    highlight_border_style: (fg: "#b7bdf8"),
+    song_table_format: [
+        (
+            prop: (kind: Property(Artist), style: (fg: "#b7bdf8"), default: (kind: Text("Unknown"))),
+            width: "50%",
+            alignment: Right,
+        ),
+        (
+            prop: (kind: Text("-"), style: (fg: "#b7bdf8"), default: (kind: Text("Unknown"))),
+            width: "1",
+            alignment: Center,
+        ),
+        (
+            prop: (kind: Property(Title), style: (fg: "#7dc4e4"), default: (kind: Text("Unknown"))),
+            width: "50%",
+        ),
+    ],
+    header: (
+        rows: [
+            (
+                left: [
+                    (kind: Text("["), style: (fg: "#b7bdf8", modifiers: "Bold")),
+                    (kind: Property(Status(State)), style: (fg: "#b7bdf8", modifiers: "Bold")),
+                    (kind: Text("]"), style: (fg: "#b7bdf8", modifiers: "Bold"))
+                ],
+                center: [
+                    (kind: Property(Song(Artist)), style: (fg: "#eed49f", modifiers: "Bold"),
+                        default: (kind: Text("Unknown"), style: (fg: "#eed49f", modifiers: "Bold"))
+                    ),
+                    (kind: Text(" - ")),
+                    (kind: Property(Song(Title)), style: (fg: "#7dc4e4", modifiers: "Bold"),
+                        default: (kind: Text("No Song"), style: (fg: "#7dc4e4", modifiers: "Bold"))
+                    )
+                ],
+                right: [
+                    (kind: Text("Vol: "), style: (fg: "#b7bdf8", modifiers: "Bold")),
+                    (kind: Property(Status(Volume)), style: (fg: "#b7bdf8", modifiers: "Bold")),
+                    (kind: Text("% "), style: (fg: "#b7bdf8", modifiers: "Bold"))
+                ]
+            )
+        ],
+    ),
+    tabs: [
+    (
+        name: "Queue",
+        pane: Split(
+			direction: Horizontal,            
+			panes: [
+			(size: "20%", pane: Pane(AlbumArt)),
+			(size: "80%", pane: Split(
+					direction: Vertical,
+					panes: [
+						(size: "60%", pane: Pane(Queue)),
+						(size: "20%", pane: Pane(Cava)),
+						], 
+					)),
+				],
+			),
+	),			
+    (
+        name: "Directories",
+        pane: Pane(Directories),
+    ),
+    (
+        name: "Artists",
+        pane: Pane(Artists),
+    ),
+    (
+        name: "Album Artists",
+        pane: Pane(AlbumArtists),
+    ),
+    (
+        name: "Albums",
+        pane: Pane(Albums),
+    ),
+    (
+        name: "Playlists",
+        pane: Pane(Playlists),
+    ),
+    (
+        name: "Search",
+        pane: Pane(Search),
+    ),
+	],
+)
