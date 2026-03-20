@@ -1,0 +1,46 @@
+#!/bin/bash
+
+STATE_FILE="/tmp/polybar-xset-state"
+
+# Initialize
+if [ ! -f "$STATE_FILE" ]; then
+    if xset q | grep -q "timeout:  0"; then
+        echo "off" > "$STATE_FILE"
+    else
+        echo "on" > "$STATE_FILE"
+    fi
+fi
+
+get_status() {
+    if [ "$(cat "$STATE_FILE")" = "on" ]; then
+        #echo "%{F#040404}󰒲%{F-}"
+        echo 󰒲
+    else
+        #echo "%{F#FFA602}󰒳%{F-}"
+        echo 󰒳
+    fi
+}
+
+toggle() {
+    current=$(cat "$STATE_FILE")
+    if [ "$current" = "on" ]; then
+        xset s off
+        xset -dpms
+        echo "off" > "$STATE_FILE"
+        notify-send -i video-display "Screen Saver" "Disabled"
+    else
+        xset s on
+        xset +dpms
+        echo "on" > "$STATE_FILE"
+        notify-send -i video-display "Screen Saver" "Enabled"
+    fi
+}
+
+case "$1" in
+    --toggle)
+        toggle
+        ;;
+    --status)
+        get_status
+        ;;
+esac

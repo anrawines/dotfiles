@@ -1,0 +1,22 @@
+####################################
+#     Color 
+####################################
+# it fails to get colors from Xresources.
+set_from_resource $fg i3wm.color4 #7fbbb3
+set_from_resource $bg i3wm.color0 #2d353b
+
+# class                 border  backgr. text indicator child_border
+client.focused 			$fg 	$fg 	$bg  $fg	   $fg
+client.focused_inactive $bg     $bg     $fg  $bg       $bg
+client.unfocused        $bg     $bg     $fg  $bg       $bg
+client.urgent           $bg     $bg     $fg  $bg       $bg
+client.placeholder      $bg     $bg     $fg  $bg       $bg
+client.background       $bg
+
+# class                 border  backgr. text    indicator child_border
+#client.focused          #b3e5fc #b3e5fc #1a1a1a #4fc3f7   #b3e5fc
+#client.focused_inactive #00141d #00141d #888888 #00141d   #00141d
+#client.unfocused        #00141d #00141d #FFFFFF #00141d   #00141d
+#client.urgent           #4fc3f7 #4fc3f7 #00141d #4fc3f7   #4fc3f7
+#client.placeholder      #00141d #00141d #FFFFFF #00141d   #00141d
+#client.background       #00141d

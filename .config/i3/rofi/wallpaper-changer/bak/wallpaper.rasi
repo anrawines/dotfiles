@@ -1,0 +1,72 @@
+configuration {
+    show-icons:         true;
+    icon-theme:         "Papirus";
+    hover-select:       true;
+    me-select-entry:    "";
+    me-accept-entry:    "MousePrimary";
+}
+
+/* Nord Theme Colors */
+* {
+    nord0:  #2e3440;
+    nord1:  #3b4252;
+    nord2:  #434c5e;
+    nord3:  #4c566a;
+    nord4:  #d8dee9;
+    nord5:  #e5e9f0;
+    nord6:  #eceff4;
+    nord7:  #8fbcbb;
+    nord8:  #88c0d0;
+    nord9:  #81a1c1;
+    nord10: #5e81ac;
+    
+    background-color:   transparent;
+    text-color:         @nord4;
+}
+
+window {
+    width:            1000px;
+    height:           700px;
+    background-color: @nord0;
+    border:           1px;          /* Garis tipis */
+    border-color:     @nord3;
+    border-radius:    12px;
+}
+
+mainbox {
+    children: [ listview ];
+}
+
+listview {
+    columns:      2;                /* 2 kolom agar gambar lebih lebar/fit */
+    lines:        3;
+    spacing:      20px;
+    padding:      20px;
+    cycle:        false;            /* Dimatikan agar bisa scroll ke bawah */
+    scrollbar:    false;
+    fixed-height: false;
+    flow:         horizontal;
+}
+
+element {
+    orientation:      vertical;
+    padding:          10px;
+    border-radius:    8px;
+    background-color: @nord1;
+}
+
+element selected {
+    background-color: @nord3;
+    text-color:       @nord8;
+}
+
+element-icon {
+    size:             300px;        /* Ukuran besar untuk preview */
+    cursor:           pointer;
+    horizontal-align: 0.5;
+}
+
+element-text {
+    horizontal-align: 0.5;
+    font:             "JetBrainsMono Nerd Font 10";
+}

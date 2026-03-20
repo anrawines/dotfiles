@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Cek apakah firefox sudah jalan
+if pgrep -x "firefox" > /dev/null; then
+    # Jika sudah jalan, fokuskan saja jendela yang ada
+    i3-msg '[class="(?i)firefox"] focus'
+else
+    # Jika belum jalan, jalankan firefox
+    firefox &
+fi

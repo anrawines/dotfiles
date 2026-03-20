@@ -1,0 +1,83 @@
+/*
+* Rofi Gruvbox Theme
+*/
+
+* {
+    /* Gruvbox Colors */
+    dark0:        #1d2021;
+    dark1:        #282828;
+    dark2:        #3c3836;
+    light1:       #ebdbb2;
+    light2:       #d5c4a1;
+    accent-yellow:#fabd2f;
+    accent-red:   #fb4934;
+    accent-blue:  #458588;
+    
+    background-color: transparent;
+    width: 35%;
+    font: "Monospace 12";
+}
+
+window {
+    height: 45%;
+    border: 2px;
+    border-color: @accent-blue;
+    background-color: @dark0;
+    border-radius: 10px;
+    location: center;
+    anchor: center;
+}
+
+inputbar {
+    background-color: @dark1;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+entry {
+    padding: 8px;
+    margin: 20px 0px 0px 10px;
+    text-color: @light1;
+    background-color: @dark1;
+    placeholder: "Search...";
+}
+
+listview {
+    border: 0px 0px 0px;
+    padding: 6px 0px 0px;
+    margin: 10px 20px 10px 20px;
+    columns: 1;
+    lines: 6;
+    background-color: @dark0;
+}
+
+element {
+    padding: 8px;
+    background-color: transparent;
+    text-color: @light2;
+    border-radius: 10px;
+}
+
+element selected {
+    background-color: @dark2;
+    text-color: @accent-yellow;
+}
+
+textbox {
+    padding: 10px;
+    margin: 20px 0px 0px 20px;
+    text-color: @accent-blue;
+    background-color: @dark1;
+}
+
+message {
+    background-color: @dark2;
+    margin: 2px;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+element-text, element-icon {
+    background-color: inherit;
+    text-color: inherit;
+}

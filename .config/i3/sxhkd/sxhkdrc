@@ -1,0 +1,471 @@
+# ALT-TAB
+alt + Tab
+	~/.config/i3/rofi/alt-tab/alt-tab.sh
+
+##---------- Applications ----------##
+	
+# Launch Terminal 1 (Wezterm)
+super + Return
+	alacritty
+
+# Launch Terminal 2 (Wezterm)
+super + ctrl + Return
+	kitty
+
+# Toggle Scratchpad Terminal
+super + shift + Return
+	~/.config/i3/scripts/scratchpad
+
+# Launch Rofi Application Menu
+super + space
+	rofi -show drun -line-padding 4 -hide-scrollbar -matching fuzzy -show-icons -theme ~/.config/i3/rofi/app-launcher/style_1.rasi
+	
+# Launch Rofi Application Menu
+super + alt + space
+	~/.local/bin/nimlaunch
+	
+# Launch Browser (Firefox)
+super + b
+	~/.config/i3/scripts/toggle-firefox
+
+# Launch Private Browser (Firefox Incognito Mode)
+super + shift + b
+	firefox -private-window
+	
+# Launch Secondary Browser ( Helium )
+super + ctrl + b
+	pgrep -x "helium" > /dev/null && wmctrl -xa "helium" || helium-browser
+	
+# Color Picker
+super + c
+	~/.config/i3/scripts/color-picker.sh
+	
+# Launch Dmenu
+super + d
+	~/.local/bin/dmenu-local.sh
+
+# Online Search
+super + e
+	~/.config/i3/rofi/oneline-search/online-search.sh
+	   	
+# Launch File Manager (Thunar)
+super + f
+	thunar
+
+# Toggle Scratchpad File Manager (Thunar)
+super + shift + f
+	thunar --name thunar_float
+	
+# Launch Geany (Text Editor)
+super + g
+	pgrep -x geany > /dev/null && i3-msg '[class="(?i)geany"] focus' || geany
+
+# Launch Calculator
+super + KP_Multiply
+	qalculate-gtk
+
+# Test1
+#super + KP_{0-9,Divide,Multiply,Subtract,Add,Decimal,Enter,Separator}
+#    notify-send {0-9,Divide,Multiply,Subtract,Add,Decimal,Enter,Separator}
+
+# Test2
+#super + {Num_Lock,@Print,Insert,Home,Prior,Delete,End,Next,Scroll_Lock,Pause}
+#    notify-send {Num_Lock,Print,Insert,Home,Prior,Delete,End,Next,Scroll_Lock,Pause}
+
+# Emoji
+super + o
+	~/.config/i3/rofi/emoji-picker/emoji.sh
+	
+# Launch Pulsemixer (Audio Mixer)
+super + m
+	~/.config/i3/scripts/scratchpad pulsemixer ~/.config/i3/scripts/pulsemixer
+	
+# Take a Screenshot (Region Select)
+super + shift + p
+	flameshot gui --path ~/Media/Images; paplay ~/.config/i3/dunst/sounds/camera-shutter.mp3 >/dev/null 2>&1
+
+# Take a Fullscreen Screenshot
+super + p
+	flameshot full --path ~/Media/Images; paplay ~/.config/i3/dunst/sounds/camera-shutter.mp3 >/dev/null 2>&1
+
+# Take a Screenshot ( clipboard )
+super + ctrl + p
+    flameshot gui -c; paplay ~/.config/i3/dunst/sounds/camera-shutter.mp3 >/dev/null 2>&1
+    
+# Launch Translate
+super + u
+	pgrep -f "easygoogletranslate" > /dev/null && wmctrl -xa "easygoogletranslate" || ~/Tools/easygoogletranslate/launcher.sh
+
+# Open Greenclip Clipboard History
+super + v
+    ~/.config/i3/rofi/clipboard-menu/clipmenu.sh 
+
+super + alt + c
+    xclip -selection clipboard -o | xargs | xclip -selection clipboard -target STRING && notify-send "Clipboard" "Sanitized & Formatted"    
+    
+# Clear Greenclip History
+super + shift + v
+	greenclip clear && notify-send "Clipboard" "History Cleared" -t 1000 
+    
+# Shutdown or Reboot
+super + x
+	~/.config/i3/rofi/power-menu/powermenu.sh
+	
+# Lockscreen
+super + z
+    betterlockscreen -l
+
+# Show Keybinding Help Script super + /
+super + slash
+	~/.config/i3/rofi/keybinds-lists/keybinds-lists.sh
+	
+# Polybar Toggle
+super + F1
+   bash ~/.config/i3/scripts/polybar-toggle.sh
+  
+# Picom Toggle
+super + F2
+	sh ~/.config/i3/scripts/picom-toggle.sh
+   
+# Launch Wallpaper Menu
+super + F3
+	~/.config/i3/rofi/wallpaper-changer/wallpaper-launcher+rofi.sh
+
+# Theme Changer
+super + F4
+   bash ~/.config/i3/rofi/themes-changer/theme-switcher.sh
+
+##---------- System Keys ----------##
+	
+# Switch to Workspace 1
+super + 1
+	i3-msg workspace 1
+
+# Switch to Workspace 2
+super + 2
+	i3-msg workspace 2
+
+# Switch to Workspace 3
+super + 3
+	i3-msg workspace 3
+
+# Switch to Workspace 4
+super + 4
+	i3-msg workspace 4
+
+# Switch to Workspace 5
+super + 5
+	i3-msg workspace 5
+
+# Switch to Workspace 6
+super + 6
+	i3-msg workspace 6
+
+# Switch to Workspace 7
+super + 7
+	i3-msg workspace 7
+
+# Switch to Workspace 8
+super + 8
+	i3-msg workspace 8
+
+# Switch to Workspace 9
+super + 9
+	i3-msg workspace 9
+
+# Switch to Workspace 10
+super + 0
+	i3-msg workspace 10
+
+# Move to Workspace 1
+super + shift + 1
+	i3-msg move container to workspace number 1
+
+# Move to Workspace 2
+super + shift + 2
+	i3-msg move container to workspace number 2
+
+# Move to Workspace 3
+super + shift + 3
+	i3-msg move container to workspace number 3
+
+# Move to Workspace 4
+super + shift + 4
+	i3-msg move container to workspace number 4
+
+# Move to Workspace 5
+super + shift + 5
+	i3-msg move container to workspace number 5
+
+# Move to Workspace 6
+super + shift + 6
+	i3-msg move container to workspace number 6
+
+# Move to Workspace 7
+super + shift + 7
+	i3-msg move container to workspace number 7
+
+# Move to Workspace 8
+super + shift + 8
+	i3-msg move container to workspace number 8
+
+# Move to Workspace 9
+super + shift + 9
+	i3-msg move container to workspace number 9
+
+# Move to Workspace 10
+super + shift + 0
+	i3-msg move container to workspace number 10
+	
+# Move & Follow to Workspace 1
+super + ctrl + 1
+	i3-msg move container to workspace number 1; i3-msg workspace 1
+
+# Move & Follow to Workspace 2
+super + ctrl + 2
+	i3-msg move container to workspace number 2; i3-msg workspace 2
+	
+# Move & Follow to Workspace 3
+super + ctrl + 3
+	i3-msg move container to workspace number 3; i3-msg workspace 3	
+	
+# Move & Follow to Workspace 4
+super + ctrl + 4
+	i3-msg move container to workspace number 4; i3-msg workspace 4	
+	
+# Move & Follow to Workspace 5
+super + ctrl + 5
+	i3-msg move container to workspace number 5; i3-msg workspace 5
+	
+# Move & Follow to Workspace 6
+super + ctrl + 6
+	i3-msg move container to workspace number 6; i3-msg workspace 6
+	
+# Move & Follow to Workspace 7
+super + ctrl + 7
+	i3-msg move container to workspace number 7; i3-msg workspace 7
+
+# Move & Follow to Workspace 8
+super + ctrl + 8
+	i3-msg move container to workspace number 8; i3-msg workspace 8
+
+# Move & Follow to Workspace 9
+super + ctrl + 9
+	i3-msg move container to workspace number 9; i3-msg workspace 9
+
+# Focus Left
+super + h
+	i3-msg focus left
+
+# Focus Down
+super + j
+	i3-msg focus down
+
+# Focus Up
+super + k
+	i3-msg focus up
+
+# Focus Right
+super + l
+	i3-msg focus right
+
+# Move Window Left
+super + shift + h
+	i3-msg move left
+
+# Move Window Down
+super + shift + j
+	i3-msg move down
+
+# Move Window Up
+super + shift + k
+	i3-msg move up
+
+# Move Window Right
+super + shift + l
+	i3-msg move right
+
+# Resize Grow Width (Arrow)
+super + ctrl + h
+	i3-msg resize grow width 10 px or 10 ppt
+
+# Resize Shrink Height (Arrow)
+super + ctrl + j
+	i3-msg resize shrink height 10 px or 10 ppt
+
+# Resize Grow Height (Arrow)
+super + ctrl + k
+	i3-msg resize grow height 10 px or 10 ppt
+
+# Resize Shrink Width (Arrow)
+super + ctrl + l
+	i3-msg resize shrink width 10 px or 10 ppt	
+
+# Focus Left (Arrow)
+super + Left
+	i3-msg focus left
+
+# Focus Down (Arrow)
+super + Down
+	i3-msg focus down
+
+# Focus Up (Arrow)
+super + Up
+	i3-msg focus up
+
+# Focus Right (Arrow)
+super + Right
+	i3-msg focus right
+
+# Move Window Left (Arrow)
+super + shift + Left
+	i3-msg move left
+
+# Move Window Down (Arrow)
+super + shift + Down
+	i3-msg move down
+
+# Move Window Up (Arrow)
+super + shift + Up
+	i3-msg move up
+
+# Move Window Right (Arrow)
+super + shift + Right
+	i3-msg move right
+	
+# Resize Grow Width (Arrow)
+super + ctrl + Left
+	i3-msg resize grow width 10 px or 10 ppt
+
+# Resize Shrink Height (Arrow)
+super + ctrl + Down
+	i3-msg resize shrink height 10 px or 10 ppt
+
+# Resize Grow Height (Arrow)
+super + ctrl + Up
+	i3-msg resize grow height 10 px or 10 ppt
+
+# Resize Shrink Width (Arrow)
+super + ctrl + Right
+	i3-msg resize shrink width 10 px or 10 ppt	
+
+# Brightness Up (Media Key)
+#XF86MonBrightnessUp
+#	xbacklight +10
+
+# Brightness Down (Media Key)
+#XF86MonBrightnessDown
+#	xbacklight -10
+	
+# Brightness Up (Numpad + ATAU Tombol Laptop)
+XF86MonBrightnessUp
+    brightnessctl set +5% && notify-send "Brightness" "$(brightnessctl -m | cut -d, -f4)" -h string:x-canonical-private-synchronous:brightness
+
+# Brightness Down (Numpad - ATAU Tombol Laptop)
+XF86MonBrightnessDown
+    brightnessctl set 5%- && notify-send "Brightness" "$(brightnessctl -m | cut -d, -f4)" -h string:x-canonical-private-synchronous:brightness
+
+# Reload sxhkd Config
+super + Escape
+	pkill -USR1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
+
+# Toggle Fullscreen
+super + alt + f
+	i3-msg fullscreen toggle; notify-send 'i3' 'Fullscreen Mode Activated'
+
+# Toggle Floating
+super + shift + space
+	i3-msg floating toggle
+	
+# Toggle Floating Mouse
+super + shift + button1
+	i3-msg floating toggle
+	
+# Toggle Focus (Tiling/Floating)
+super + control + space
+	i3-msg focus mode_toggle
+
+# Focus Parent Container
+super + alt + a
+	i3-msg focus parent
+    
+# Exit i3
+super + shift + q
+	i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'
+
+# Close Window
+super + q
+	i3-msg kill
+
+# Reload i3 Config
+super + shift + c
+	i3-msg reload
+
+# Restart i3
+super + shift + r
+	i3-msg restart && (sleep 2 && notify-send 'i3' 'Restarted') 
+
+# Layout Stacking
+super + s
+	i3-msg layout stacking; notify-send 'i3' 'Stacking Layout Activated'
+
+# Layout Tabbed
+super + t
+	i3-msg layout tabbed; notify-send 'i3' 'Tab Layout Activated'
+
+# Layout Toggle Split
+super + w
+	i3-msg layout toggle split; notify-send 'i3' 'Split Layout Activated'
+
+# Move to Scratchpad
+super + minus
+	i3-msg move scratchpad; i3-msg scratchpad show, resize set 1200 800, move position center
+
+# Show/Hide Scratchpad
+super + equal
+	i3-msg scratchpad show
+
+# Move Scratchpad Back to Tiling
+super + shift + equal
+	i3-msg floating disable
+
+# Play/Pause ( Media Key )
+XF86AudioPlay
+    mpc toggle && ~/.config/rmpc/notify_album_art.sh
+
+# Stop ( Media Key )
+XF86AudioStop
+    mpc stop && notify-send 'music' 'stop'
+
+# Next Track ( Media Key )
+XF86AudioNext
+    mpc next && ~/.config/rmpc/notify_album_art.sh
+
+# Previous Track ( Media Key )
+XF86AudioPrev
+    mpc prev && ~/.config/rmpc/notify_album_art.sh
+    
+# Mute Audio ( Media Key )
+XF86AudioMute
+	pamixer -t && notify-send "Volume" "Muted" -u low -r "9993" \
+	-h string:x-dunst-stack-tag:volume
+	 
+# Volume Up ( Media Key )
+XF86AudioRaiseVolume
+	pamixer -i 2 && ~/.config/i3/scripts/volume-dunst.sh
+
+# Volume Down ( Media Key )
+XF86AudioLowerVolume
+	pamixer -d 2 && ~/.config/i3/scripts/volume-dunst.sh
+
+# Volume Down
+super + F11
+	~/.config/i3/scripts/changevolume.sh down
+	
+# Toggle Mute
+super + F10
+	~/.config/i3/scripts/changevolume.sh mute
+
+# Volume Up
+super + F12
+	~/.config/i3/scripts/changevolume.sh up	

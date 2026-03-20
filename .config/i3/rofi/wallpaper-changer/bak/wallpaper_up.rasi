@@ -1,0 +1,73 @@
+ configuration {
+    show-icons:         true;
+    icon-theme:         "Papirus";
+}
+
+* {
+    /* Nord Theme Colors */
+    nord0: #2e3440;
+    nord1: #3b4252;
+    nord3: #4c566a;
+    nord4: #d8dee9;
+    nord8: #88c0d0;
+    background-color:   transparent;
+    text-color:         @nord4;
+}
+
+
+window {
+    width:            500px;
+    height:           100%;
+    background-color: @nord0;
+    border:           1px;
+    border-color:     @nord3;
+    border-radius:    0px;
+}
+
+
+listview {
+    enabled:          true;
+    columns:          1;
+    lines:            3;
+    cycle:            true;
+    layout:           vertical;
+    spacing:          1px;
+    padding:          1px;
+    fixed-height:     true;
+    width:            250px;
+    height:           250px;
+
+}
+
+
+element {
+    orientation:      	vertical;
+    padding:          	1px;
+    spacing:            5px;
+    border-radius:  	1px;
+    background-color: 	@nord1;
+}
+
+
+element selected {
+    background-color: 	@nord3;
+    text-color:       	@nord8;
+}
+
+
+element-icon {
+    /* Ukuran disesuaikan agar muat dalam 500px width */
+    size:            	29%;
+    width:           	33.3%;
+    height:           	33.3%; 
+    vertical-align:     0.5;
+    horizontal-align:	0.5;
+    expand:             true;
+    cursor:           	pointer;
+
+} 
+
+element-text {
+    horizontal-align:   0.5;
+    expand:             false; /* Agar teks tidak menggeser ikon keluar */
+}

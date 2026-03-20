@@ -1,0 +1,43 @@
+/*
+* Rofi Nord Theme
+*/
+
+* {
+    nord0: #2E3440;
+    nord1: #3B4252;
+    nord4: #D8DEE9;
+    nord6: #ECEFF4;
+    nord8: #88C0D0;
+    nord11: #BF616A;
+    
+    background-color: transparent;
+    width: 35%;
+    font: "Monospace 12";
+}
+
+window {
+    height: 45%;
+    border: 2px;
+    border-color: @nord8;
+    background-color: @nord0;
+    border-radius: 10px;
+    location: center;
+    anchor: center;
+}
+
+entry {
+    padding: 8px;
+    text-color: @nord6;
+    background-color: @nord1;
+}
+
+element {
+    padding: 8px;
+    background-color: transparent;
+    text-color: @nord4;
+}
+
+element selected {
+    background-color: @nord1;
+    text-color: @nord8;
+}

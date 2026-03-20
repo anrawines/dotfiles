@@ -1,0 +1,27 @@
+#!/bin/bash
+
+WALL_DIR="$HOME/Media/Wallpapers"
+CACHE_DIR="$HOME/.cache/thumbnails/rofi"
+RASI_THEME="$HOME/.config/i3/rofi/wallx.rasi"
+
+mkdir -p "$CACHE_DIR"
+
+list_items=""
+while read -r img; do
+    img_name=$(basename "$img")
+    thumb="$CACHE_DIR/$img_name.png"
+    
+    # Generate thumbnail hanya jika belum ada
+    [[ ! -f "$thumb" ]] && ffmpeg -i "$img" -vf "scale=450:-1" "$thumb" -loglevel quiet -n
+    
+    list_items+="$img_name\0icon\x1f$thumb\n"
+done < <(find "$WALL_DIR" -maxdepth 1 -type f \( -iname "*.jpg" -o -iname "*.png" -o -iname "*.jpeg" \))
+
+# Jalankan Rofi
+selected=$(echo -ne "$list_items" | rofi -dmenu -i -p "Wallpaper" -theme "$RASI_THEME")
+
+# Apply (Gunakan swww jika pakai Wayland, feh untuk X11)
+if [ -n "$selected" ]; then
+    wal -i "$WALL_DIR/$selected"
+    feh --bg-fill "$WALL_DIR/$selected"
+fi

@@ -1,0 +1,44 @@
+#!/bin/bash
+# Rofi Theme Switcher
+
+ROFI_CONFIG_DIR="$HOME/.config/i3/rofi"
+THEMES_DIR="$ROFI_CONFIG_DIR/themes"
+BACKUP_DIR="$ROFI_CONFIG_DIR/backup"
+
+# Create directories if they don't exist
+mkdir -p "$THEMES_DIR" "$BACKUP_DIR"
+
+# Get list of theme files
+themes=("$THEMES_DIR"/*.rasi)
+theme_names=()
+
+# Extract theme names
+for theme in "${themes[@]}"; do
+    if [[ -f "$theme" ]]; then
+        name=$(basename "$theme" .rasi)
+        theme_names+=("$name")
+    fi
+done
+
+# If no themes found, show error
+if [[ ${#theme_names[@]} -eq 0 ]]; then
+    rofi -e "No themes found in $THEMES_DIR"
+    exit 1
+fi
+
+# Show theme selection using current config
+selected=$(printf "%s\n" "${theme_names[@]}" | rofi -dmenu -p "Select Theme:")
+
+if [[ -n "$selected" ]]; then
+    # Backup current config if it exists
+    if [[ -f "$ROFI_CONFIG_DIR/config.rasi" ]]; then
+        backup_name="config_$(date +%Y%m%d_%H%M%S).rasi"
+        cp "$ROFI_CONFIG_DIR/config.rasi" "$BACKUP_DIR/$backup_name"
+    fi
+    
+    # Copy selected theme to main config
+    cp "$THEMES_DIR/$selected.rasi" "$ROFI_CONFIG_DIR/config.rasi"
+    
+    # Test the new theme
+    rofi -show drun -config "$ROFI_CONFIG_DIR/config.rasi"
+fi

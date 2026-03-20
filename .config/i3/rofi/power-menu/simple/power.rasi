@@ -1,0 +1,139 @@
+* {
+    bg: #161616;
+    background-color: @bg;
+    font: "JetBrainsMono Nerd Font 12";  /* Monospace font for alignment */
+}
+
+configuration {
+    show-icons: true;
+    icon-theme: "Papirus";
+    location: 0;
+    display-drun: "󰍜 Launch:";
+}
+
+window {
+    width: 18%; /* Ukuran lebih proporsional untuk center */
+    height: 25%;
+    location: center;
+    anchor: center;
+    transparency: "real";
+    border: 2px;
+    border-color: #89b4fa;
+    border-radius: 10px;
+}
+
+mainbox {
+    children: [inputbar, listview];
+}
+
+// ELEMENT
+// -----------------------------------
+
+element {
+    //padding: 4 8;
+    padding: 4px;
+    orientation: horizontal;
+    text-color: #F2F4F8;
+    background-color: #161616;
+    border-radius: 5px;
+    border: 1px 1px 1px 1px; // kiri kanan atas bawah
+    border-color: #333333;
+}
+
+element.selected {
+    text-color: #ffffff;
+    background-color: #313244;
+}
+
+element-text {
+    background-color: inherit;
+    text-color: inherit;
+    horizontal-align: 0.5; /* Pusatkan teks ke tengah */
+    vertical-align: 0.5;
+    margin: 0 0 0 -24px; /* OFFSET: Gunakan margin negatif sebesar ukuran ikon untuk kompensasi */
+    cursor: inherit;
+}
+
+element-icon {
+    size: 16px;
+    background-color: inherit;
+    padding: 0 0 0 0;
+    alignment: vertical;
+
+    cursor: inherit;
+    horizontal-align: 0.5; /* Pusatkan ikon */
+    vertical-align: 0.5;
+}
+
+element.selected.active {
+    background-color: #0D385E;
+    text-color: #F2F4F8;
+}
+
+element.alternate.normal {
+    background-color: #161616;
+    text-color: #F2F4F8;
+}
+
+element.alternate.active {
+    background-color: #ff8f40;
+    text-color: #89b4fa;
+}
+
+element.selected.normal {
+    background-color: #0D385E;
+    text-color: #89b4fa;
+}
+
+element.normal.active {
+    background-color: #0D385E;
+    text-color: #F2F4F8;
+}
+
+element.normal.normal {
+    background-color: #161616;
+    text-color: #F2F4F8;
+}
+
+element.normal.urgent {
+    background-color: #f25d78;
+    text-color: #161616;
+}
+
+listview {
+    columns: 1;
+    lines: 8;
+    spacing: 5px; /* Jarak antar elemen */
+    cycle: false;
+    dynamic: true;
+    layout: vertical;
+    padding: 10px;
+    
+    /* Separator garis di bagian atas listview */
+    border: 2px 0 0 0; 
+    border-color: #78a9ff; 
+}
+
+inputbar {
+    padding: 10 0 0;
+    margin: 0 0 0 0;
+}
+
+/* text power */
+entry {
+    padding: 4px;
+    margin: 5px 0px 0px 0px;
+    text-color: #cdd6f4;
+    background-color: @bg;
+    placeholder: "";
+}
+
+prompt {
+    background-color: #78a9ff;
+    padding: 3px 3px;
+    text-color: @bg;
+    border-radius: 6px;
+    margin: 5px 10px 10px 10px;
+    vertical-align: 0.5;
+    horizontal-align: 0.5;
+}

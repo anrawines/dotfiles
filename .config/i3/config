@@ -1,0 +1,62 @@
+################################
+#			Source
+################################
+
+include $HOME/.config/i3/workspaces.conf
+include $HOME/.config/i3/rules.conf
+include $HOME/.config/i3/gaps.conf
+#include $HOME/.config/i3/gaps-normal.conf
+#include $HOME/.config/i3/gaps-floating.conf
+include $HOME/.config/i3/autoruns.conf
+include $HOME/.config/i3/colors.conf
+
+################################
+#			Mod Key
+################################
+# set the mod key to the winkey:
+set $mod Mod4
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+####################################
+#			Fonts 
+####################################
+font pango:JetBrainsMono Nerd Font 12
+
+####################################
+#			Border 
+####################################
+
+# Borders
+default_border pixel 3
+default_floating_border normal 5
+
+#default_border normal|none|pixel
+#default_border normal|pixel <px>
+#default_border normal 2
+#default_floating_border normal|none|pixel
+#default_floating_border normal|pixel <px>
+
+
+## old
+#for_window [class="^.*"] border pixel 2
+#for_window [title="^.*"] border pixel 2
+
+####################################
+#			Settings 
+####################################
+## mouse focus window
+focus_follows_mouse no
+workspace_auto_back_and_forth yes
+
+# Add padding to window titles
+for_window [class=".*"] title_format "<span foreground='white'>%title</span>"
+title_align center
+
+
+
+
+
+
+
+

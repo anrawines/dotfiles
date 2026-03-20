@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Function to safely get xrdb colors
+get_xrdb_color() {
+    # 1. Query xrdb
+    # 2. Find the line starting with the resource (e.g., *.color4:)
+    # 3. Print the last field (the hex code)
+    local color=$(xrdb -query | grep -m 1 "$1" | awk '{print $NF}')
+    
+    # If color is empty, use the fallback provided as the second argument
+    echo "${color:-$2}"
+}
+
+# Define your variables using the function
+BG=$(get_xrdb_color "background" "#222222")
+FG=$(get_xrdb_color "color4" "#2f363d")
+LC=$(get_xrdb_color "color2" "#1A232E")
+
+# TEST: Run the script in your terminal. 
+# If these echo correctly, the rest of the script will work.
+echo "Debug: BG is $BG"
+echo "Debug: FG is $FG"
+echo "Debug: LC is $LC"

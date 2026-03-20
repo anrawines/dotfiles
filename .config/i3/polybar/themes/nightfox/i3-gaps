@@ -1,0 +1,19 @@
+####################################
+#     Gaps 
+####################################
+## hide border jika 1 window
+hide_edge_borders smart 
+smart_gaps on
+
+#smart_borders on
+#smart_borders off
+
+ 
+## gaps
+gaps inner 4
+gaps outer 2
+
+## bar size + gaps
+gaps top 2
+gaps bottom 2
+

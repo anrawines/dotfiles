@@ -1,0 +1,58 @@
+configuration {
+    show-icons:         true;
+    icon-theme:         "Papirus";
+}
+
+* {
+    /* Nord Palette */
+    nord0: #2e3440; nord1: #3b4252; nord3: #4c566a; nord4: #d8dee9; nord8: #88c0d0;
+    
+    background-color:   transparent;
+    text-color:         @nord4;
+}
+
+window {
+    width:            1000px;
+    height:           800px;
+    background-color: @nord0;
+    border:           1px;          /* Garis tipis */
+    border-color:     @nord3;
+    border-radius:    10px;
+}
+
+listview {
+    enabled:      true;
+    columns:      2;                /* Tetap 2 kolom agar gambar lebar */
+    lines:        10;               /* Jumlah baris yang ditampilkan */
+    cycle:        false;
+    dynamic:      true;
+    scrollbar:    true;             /* Aktifkan scrollbar jika perlu indikator */
+    layout:       vertical;         /* PAKSA SCROLL ATAS-BAWAH */
+    fixed-columns: true;
+    spacing:      20px;
+    padding:      20px;
+}
+
+element {
+    orientation:      vertical;     /* Icon di atas, teks di bawah */
+    padding:          10px;
+    border-radius:    8px;
+    background-color: @nord1;
+}
+
+element selected {
+    background-color: @nord3;
+    text-color:       @nord8;
+    border:           1px;
+    border-color:     @nord8;
+}
+
+element-icon {
+    size:             400px;        /* Ukuran lebar sesuai keinginan Anda */
+    horizontal-align: 0.5;
+}
+
+element-text {
+    horizontal-align: 0.5;
+    padding:          5px;
+}

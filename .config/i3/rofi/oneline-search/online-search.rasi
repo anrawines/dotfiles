@@ -1,0 +1,72 @@
+/**
+ * Rofi theme for a simple online search bar.
+ * Only shows an input bar and a message bar at the bottom.
+ */
+
+* {
+    background-color: transparent;
+    text-color:       #f8f8f2;
+    font:             "JetBrainsMono Nerd Font 12";
+}
+
+window {
+    background-color: #282a36;
+    border:           1px;
+    border-color:     #44475a;
+    border-radius:    8px;
+    width:            45%;
+    location:         center;
+    y-offset:         300px;
+	
+}
+
+element {
+    padding:          0;
+}
+
+mainbox {
+    children: [ inputbar, message ];
+    spacing: 0;
+}
+
+inputbar {
+    children:   [ prompt, entry ];
+    spacing:    15px;
+    padding:    15px;
+    background-color: #282a36;
+    border-radius: 8px 8px 0 0;
+}
+
+prompt {
+    enabled:          true;
+    text-color:       #6272a4;
+}
+
+entry {
+    placeholder:      "Search Google or use a prefix...";
+    placeholder-color: #6272a4;
+    text-color:       #f8f8f2;
+}
+
+/* Hide the listview completely */
+listview, element, element-text {
+    lines: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+/* Style the message bar for hints */
+message {
+    padding: 10px;
+    background-color: #21222c;
+    border: 1px 0px 0px 0px;
+    border-color: #44475a;
+    border-radius: 0 0 8px 8px;
+}
+
+textbox {
+    text-color:       #bd93f9;
+    horizontal-align: 0.5; /* Center the text */
+    markup:           true;
+}

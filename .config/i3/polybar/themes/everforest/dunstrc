@@ -1,0 +1,112 @@
+	
+[global]
+    # Display
+    monitor = 0
+    follow = keyboard
+    origin = top-right
+    offset = (1, 50)
+    width = 400
+    height = (0, 300)
+    indicate_hidden = yes
+    shrink = no
+    transparency = 0
+    separator_height = 1
+    padding = 8
+    horizontal_padding = 8
+    gap_size = 8
+    corner_radius = 15			 # same as picom corner radius
+    frame_width = 3 		     # border size
+    separator_color = auto
+    sort = yes
+    idle_threshold = 120
+    
+
+    # Text
+    font = JetBrainsMono Nerd Font 12
+    line_height = 2
+    markup = full
+    # format = "<b>%s</b>\n%b"
+    # format = "<span size='large' font_desc='JetBrainsMono Nerd Font 12' weight='bold' foreground='#b3e5fc'>%s</span>\n%b"
+    format = "<span size='large' font_desc='JetBrainsMono Nerd Font 12' weight='bold' foreground='#8F4226'>%s</span>\n%b"
+    alignment = left
+    vertical_alignment = center
+    show_age_threshold = 30
+    word_wrap = yes
+    ellipsize = middle
+    ignore_newline = yes
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = yes
+
+    # Icons
+    icon_position = left
+    min_icon_size = 32
+    max_icon_size = 96
+    enable_recursive_icon_lookup = true
+    icon_path = /usr/share/icons/Papirus/96x96/devices/:/usr/share/icons/Papirus/48x48/status/:/usr/share/icons/Papirus/96x96/apps/
+
+    # History
+    sticky_history = yes
+    history_length = 20
+
+    # Advanced
+    dmenu = /usr/bin/dmenu -p dunst:
+    browser = /usr/bin/firefox -new-tab
+    always_run_script = true
+    title = Dunst
+    class = Dunst
+    force_xinerama = false
+
+    # Progress bar
+    progress_bar = true
+    progress_bar_height = 10
+    progress_bar_frame_width = 1
+    progress_bar_min_width = 150
+    progress_bar_max_width = 300
+   
+    # Misc
+    notification_limit = 5
+    ignore_dbusclose = false
+
+    # Mouse actions
+    mouse_left_click = close_current
+    mouse_middle_click = do_action
+    mouse_right_click = close_all
+
+    # Keyboard shortcuts
+    close = ctrl+space
+    close_all = ctrl+shift+space
+    history = ctrl+grave
+    context = ctrl+shift+period
+		
+[experimental]
+    per_monitor_dpi = false
+
+[urgency_low]
+    background = "#21130e"
+    foreground = "#c7c4c2"
+    frame_color = "#8F4226"
+    timeout = 5
+    highlight = "#8F4226"
+
+[urgency_normal]
+    background = "#21130e"
+    foreground = "#c7c4c2"
+    frame_color = "#D7681D"
+    timeout = 10
+    highlight = "#8F4226"
+
+[urgency_critical]
+    background = "#21130e"
+    foreground = "#c7c4c2"
+    frame_color = "#D7681D"
+    timeout = 
+    highlight = "#D7681D"
+
+[volume-ignore]
+    summary = "*Volume:*"
+    history_ignore = yes
+
+[brightness-ignore]
+    summary = "*Brightness:*"
+    history_ignore = yes
