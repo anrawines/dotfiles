@@ -1,2 +1,5 @@
 .ssh/id_*
 .ssh/known_hosts
+.bash_history
+.zsh_history
+.python_history
