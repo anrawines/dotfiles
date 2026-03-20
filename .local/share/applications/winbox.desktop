@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=winbox
+Exec=/home/lenoarch/.local/bin/winbox/winbox
+Icon=/home/lenoarch/.local/bin/winbox/assets/img/winbox.png
+Terminal=false
+Categories=Network;
+Comment=mikrotik app
+Path=
+StartupNotify=false

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=st
+Comment=Suckless terminal
+Exec=/usr/local/bin/st
+Icon=terminal
+Terminal=false
+Type=Application
+Categories=System;TerminalEmulator;
+Path=
+StartupNotify=false
