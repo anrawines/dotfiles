@@ -1,0 +1,16 @@
+;systemctl --user disable --now gammastep 
+;systemctl --user enable --now gammastep 
+;gammastep -l 3.6:98.4 -t 6500:3500 -b 1.0:0.8 -m randr &
+
+[general]
+temp-day=6500
+temp-night=3400
+brightness-day=1.0
+brightness-night=0.9
+# gamma=0.8
+fade=1
+adjustment-method=randr
+location-provider=manual
+[manual]
+lat=40.69
+lon=-74.04

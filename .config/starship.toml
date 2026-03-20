@@ -1,0 +1,212 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+# add_newline = false
+continuation_prompt = "[╰─ ](bold green)"
+command_timeout = 1000 # (default is 500)
+
+#[░▒▓](#a3aed2)\
+#[▓▒░](#a3aed2)\
+#[](bg:#769ff0 fg:#a3aed2)\
+#[](fg:#769ff0 bg:#394260)\
+#[](fg:#394260 bg:#212736)\
+#[](fg:#212736 bg:#1d2230)\
+#[](fg:#1d2230)\
+#[]
+#[]
+#[]
+#[]
+#[]
+#[]
+#└
+#┌
+format = """
+[╭ ](#35312)\
+[](#313244)\
+$os\
+$sudo\
+$hostname\
+$username\
+[](bg:#313244 fg:#212736)\
+[](bg:#002240 fg:#212736)\
+$directory\
+$git_branch\
+$git_status\
+[](bg:#313244 fg:#212736)\
+[](bg:#002240 fg:#212736)\
+[](#002240)\
+$fill\
+$nodejs\
+$rust\
+$python\
+$golang\
+$php\
+$java\
+[](#002240)\
+$jobs\
+$status\
+[](bg:#002240 fg:#212736)\
+[](bg:#313244 fg:#212736)\
+$shell\
+$cmd_duration\
+[](bg:#002240 fg:#212736)\
+[](bg:#313244 fg:#212736)\
+$time\
+[](fg:#1d2230)\
+[$line_break╰╼$character](#35312)\
+"""
+
+[fill]
+symbol = ' '
+#symbol = "╼──╼"
+#symbol = "─󱑼──"
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[×](bold red)"
+vicmd_symbol = "[❮](green)[❮](yellow)[❮](red)"
+
+## LEFT
+
+[sudo]
+disabled = false
+symbol = "🧙"
+style = "bg:#012445"
+format = "[$symbol]($style)"
+
+[os]
+disabled = false
+format = '[$symbol ](fg:#000000 bg:#313244)'
+style = "bg:#a3aed2 fg:#090c0c" # Style harus sama dengan username
+
+[os.symbols]
+"Alpine" = ""
+"Arch" =  "  "
+"CentOS" = ""
+"Debian" = ""
+"Fedora" = ""
+"Gentoo" = ""
+"Linux" =  ""
+"Macos" = ""
+"Manjaro" = ""
+"Mint" =  ""
+"NixOS" =  ""
+"Raspbian" =  ""
+"Ubuntu" = ""
+"Windows" = "" 
+
+[username]
+show_always = false
+style_user = "bg:#a3aed2 fg:#090c0c"
+format = "[ $user ]($style)" # Hapus spasi manual agar tidak double dengan logo
+
+[hostname]
+disabled = true
+ssh_only = true
+style = "#d3b987"
+format = "[@$hostname]($style)[ ❯](#767676)"
+
+
+[directory]
+style = "fg:#c6e7ff bg:#002240 italic"
+format = "[ $path ]($style)"
+truncation_length = 3
+home_symbol = " ~/"
+truncation_symbol = ' '
+read_only = '󱧵 '
+read_only_style = ''
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+"Project" = "󰲋 "
+
+# --- Git Section (Tetap sama, sudah benar) ---
+[git_branch]
+symbol = " "
+style = "bg:#394260"
+format = '[[ $symbol $branch ](fg:#769ff0 bg:#394260)]($style)'
+
+[git_status]
+style = "#002240"
+format = "(\b[ ](bg:$style fg:#769ff0)$conflicted$staged$modified$renamed$deleted$untracked$stashed$ahead_behind)"
+conflicted = "[ ](bold fg:88 bg:#002240)[  ${count} ](fg:#769ff0 bg:#002240)"
+staged = "[ $count ](fg:#769ff0 bg:#002240)"
+modified = "[ ${count} ](fg:#769ff0 bg:#002240)"
+renamed = "[ ${count} ](fg:#769ff0 bg:#002240)"
+deleted = "[ ${count} ](fg:#769ff0 bg:#002240)"
+untracked = "[?${count} ](fg:#769ff0 bg:#002240)"
+stashed = "[ ${count} ](fg:#769ff0 bg:#002240)"
+ahead = "[ ${count} ](fg:#523333 bg:#002240)"
+behind = "[ ${count} ](fg:#769ff0 bg:#002240)"
+diverged = "[ ](fg:88 bg:#002240)[ נּ ](fg:#769ff0 bg:#002240)[ ${ahead_count} ](fg:#769ff0 bg:#002240)[ ${behind_count} ](fg:#769ff0 bg:#002240)"
+
+## RIGHT
+
+[jobs]
+disabled = false
+format = "[$number]($style)"
+
+[status]
+disabled = false
+map_symbol = false
+format = "[$symbol$status]($style)"
+sigint_symbol = "[✘](fg:#d60202 bg:#012445)"
+style = "bg:#012445"
+success_symbol = "[✔ ](fg:green bg:#012445)"
+symbol = "[✘](fg:#d60202 bg:#012445)"
+
+[cmd_duration]
+min_time = 0
+style = "bg:#012445"
+format = "([ $duration  ]($style))"
+
+[shell]
+format = '[  $indicator ](fg:#c6e7ff bg:#012445)'
+unknown_indicator = 'shell'
+powershell_indicator = '󰨊 powershell'
+fish_indicator = ' fish'
+zsh_indicator = ' zsh'
+bash_indicator = '󱆃 bash'
+disabled = false
+
+[time]
+disabled = false
+time_format = "%R" 
+style = "bg:#1d2230"
+format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
+
+# --- Language Section ---
+[docker_context]
+symbol = " "
+style = "bg:#212736"
+format = "[[ $symbol $context ](fg:#769ff0 bg:#212736)]($style)"
+
+[nodejs]
+symbol = ""
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+
+[rust]
+symbol = ""
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+
+[python]
+symbol = ""
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+disabled = false
+
+[golang]
+symbol = "ﳑ "
+style = "bg:#212736"
+format = "[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)"
+
+[java]
+symbol = " "
+style = "bg:#212736"
+format = "[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)"
+
+
+
