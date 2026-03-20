@@ -1,0 +1,303 @@
+#!/bin/bash
+
+# Configuration
+PASS_DIR="$HOME/.local/share/pass-manager"
+PASS_FILE="$PASS_DIR/passwords.gpg"
+TEMP_FILE="/tmp/pass-manager-$$.tmp"
+GPG_RECIPIENT=$(gpg --list-secret-keys --keyid-format LONG | grep sec | head -1 | awk '{print $2}' | cut -d'/' -f2)
+
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
+
+# Check prerequisites
+check_prereqs() {
+    if ! command -v rofi &>/dev/null && ! command -v dmenu &>/dev/null; then
+        echo -e "${RED}Error: Neither rofi nor dmenu found. Install one:${NC}"
+        echo "  - rofi (recommended): sudo pacman -Syyu rofi"
+        echo "  - dmenu: sudo pacman -Syyu suckless-tools"
+        exit 1
+    fi
+
+    if [ -z "$GPG_RECIPIENT" ]; then
+        echo -e "${RED}Error: No GPG key found. Create one first:${NC}"
+        echo "gpg --full-generate-key"
+        exit 1
+    fi
+}
+
+# Choose menu program (rofi > dmenu)
+get_menu() {
+    if command -v rofi &>/dev/null; then
+        echo "rofi -dmenu -i -p"
+    else
+        echo "dmenu -i -p"
+    fi
+}
+
+# Decrypt password file
+decrypt_file() {
+    if [ -f "$PASS_FILE" ]; then
+        gpg --quiet --decrypt "$PASS_FILE" 2>/dev/null
+    else
+        echo "[]" # Empty JSON array
+    fi
+}
+
+# Encrypt and save file
+encrypt_file() {
+    local content="$1"
+    echo "$content" | gpg --quiet --encrypt --recipient "$GPG_RECIPIENT" -o "$PASS_FILE"
+}
+
+# Add new password
+add_password() {
+    local menu=$(get_menu)
+
+    # Get entry name
+    local name=$(echo "" | $menu "Entry name (e.g., github.com) ")
+    [ -z "$name" ] && return
+
+    # Get username
+    local username=$(echo "" | $menu "Username/Email ")
+    [ -z "$username" ] && return
+
+    # Get password (using rofi for password input if available)
+    local password=""
+    if command -v rofi &>/dev/null; then
+        password=$(rofi -dmenu -password -p "Password ")
+    else
+        # dmenu doesn't have password mode, so we'll use a simple workaround
+        password=$(echo "" | dmenu -p "Password (will be visible): ")
+        echo -e "${RED}Warning: Password visible! Consider using rofi for hidden input.${NC}"
+    fi
+    [ -z "$password" ] && return
+
+    # Get optional notes
+    local notes=$(echo "" | $menu "Notes (optional) ")
+
+    # Create new entry
+    local new_entry=$(
+        cat <<EOF
+{
+    "name": "$name",
+    "username": "$username",
+    "password": "$password",
+    "notes": "$notes",
+    "created": "$(date +%Y-%m-%d)"
+}
+EOF
+    )
+
+    # Read existing passwords
+    local existing=$(decrypt_file)
+
+    # Remove trailing bracket and add new entry
+    if [ "$existing" = "[]" ]; then
+        local new_content="[$new_entry]"
+    else
+        local new_content=$(echo "$existing" | sed '$ s/]$//'),$new_entry]
+    fi
+
+    # Save
+    encrypt_file "$new_content"
+    echo -e "${GREEN}✓ Password added for $name${NC}"
+}
+
+# List and select password
+get_password() {
+    local menu=$(get_menu)
+
+    # Decrypt and parse entries - use a simple delimiter that won't cause issues
+    local entries=$(decrypt_file | jq -r '.[] | "\(.name) | \(.username)"' 2>/dev/null)
+
+    if [ -z "$entries" ]; then
+        echo -e "${RED}No passwords found. Add one first.${NC}"
+        return
+    fi
+
+    # Let user select an entry
+    local selected=$(echo "$entries" | $menu "Select entry ")
+    [ -z "$selected" ] && return
+
+    # Extract name - use awk instead of cut for better delimiter handling
+    local name=$(echo "$selected" | awk -F' \\| ' '{print $1}' | xargs)
+
+    if [ -z "$name" ]; then
+        echo -e "${RED}Error: Could not parse selection${NC}"
+        return
+    fi
+
+    # Get full entry
+    local entry=$(decrypt_file | jq -r ".[] | select(.name == \"$name\")")
+
+    if [ -z "$entry" ]; then
+        echo -e "${RED}Error: Could not find entry for $name${NC}"
+        return
+    fi
+
+    # Get password and username
+    local password=$(echo "$entry" | jq -r '.password')
+    local username=$(echo "$entry" | jq -r '.username')
+
+    # Copy to clipboard with multiple methods
+    local copy_success=1
+
+    if command -v xclip &>/dev/null; then
+        echo -n "$password" | xclip -selection clipboard
+        copy_success=$?
+        # Also try primary selection
+        echo -n "$password" | xclip -selection primary 2>/dev/null
+    elif command -v xsel &>/dev/null; then
+        echo -n "$password" | xsel --clipboard --input
+        copy_success=$?
+        echo -n "$password" | xsel --primary --input 2>/dev/null
+    elif [[ -n "$WAYLAND_DISPLAY" ]] && command -v wl-copy &>/dev/null; then
+        echo -n "$password" | wl-copy
+        copy_success=$?
+    fi
+
+    if [ $copy_success -eq 0 ]; then
+        echo -e "${GREEN}✓ Password for $name copied to clipboard${NC}"
+        echo "   Username: $username"
+        echo "   (Clipboard will clear in 45 seconds)"
+
+        # Clear clipboard after delay
+        (
+            sleep 45 &&
+                if command -v xclip &>/dev/null; then
+                    echo "" | xclip -selection clipboard
+                elif command -v xsel &>/dev/null; then
+                    echo "" | xsel --clipboard --input
+                elif command -v wl-copy &>/dev/null; then
+                    echo "" | wl-copy
+                fi
+        ) &
+    else
+        echo -e "${RED}✗ Failed to copy to clipboard${NC}"
+        echo "   Password: $password"
+        echo "   Username: $username"
+    fi
+}
+
+# List all entries
+list_entries() {
+    local menu=$(get_menu)
+
+    local entries=$(decrypt_file | jq -r '.[] | "\(.name) | \(.username) | \(.created)"' 2>/dev/null | column -t -s '|')
+
+    if [ -z "$entries" ]; then
+        echo -e "${RED}No passwords found.${NC}"
+        return
+    fi
+
+    # Show in rofi/dmenu for selection (can view details)
+    local selected=$(echo -e "$entries\n\n[Back]" | $menu "Passwords (select to view): ")
+
+    if [ "$selected" = "[Back]" ] || [ -z "$selected" ]; then
+        return
+    fi
+
+    # Extract name using awk
+    local name=$(echo "$selected" | awk '{print $1}')
+    local entry=$(decrypt_file | jq -r ".[] | select(.name == \"$name\")")
+
+    echo "────────────────"
+    echo "Name:     $(echo "$entry" | jq -r '.name')"
+    echo "Username: $(echo "$entry" | jq -r '.username')"
+    echo "Password: $(echo "$entry" | jq -r '.password')"
+    echo "Notes:    $(echo "$entry" | jq -r '.notes')"
+    echo "Created:  $(echo "$entry" | jq -r '.created')"
+    echo "────────────────"
+    echo -e "\nPress Enter to continue..."
+    read
+}
+
+# Delete entry
+delete_entry() {
+    local menu=$(get_menu)
+
+    local entries=$(decrypt_file | jq -r '.[] | .name' 2>/dev/null)
+
+    if [ -z "$entries" ]; then
+        echo -e "${RED}No passwords found.${NC}"
+        return
+    fi
+
+    local selected=$(echo -e "$entries" | $menu "Select entry to DELETE: ")
+    [ -z "$selected" ] && return
+
+    # Confirm
+    local confirm=$(echo -e "No\nYes" | $menu "Delete $selected? ")
+    if [ "$confirm" = "Yes" ]; then
+        local new_content=$(decrypt_file | jq "del(.[] | select(.name == \"$selected\"))")
+        encrypt_file "$new_content"
+        echo -e "${GREEN}✓ Deleted $selected${NC}"
+    fi
+}
+
+# Show help
+show_help() {
+    cat <<EOF
+local-pass - Simple password manager using rofi/dmenu and GPG
+
+USAGE:
+    local-pass [COMMAND]
+
+COMMANDS:
+    add     Add a new password
+    get     Get a password (copies to clipboard)
+    list    List all passwords
+    delete  Delete a password
+    help    Show this help
+
+If no command given, defaults to 'get'
+
+CONFIGURATION:
+    Passwords stored: $PASS_FILE
+    GPG key: $GPG_RECIPIENT
+
+EOF
+}
+
+# Main function
+main() {
+    check_prereqs
+
+    # If no jq, show warning but continue with basic functionality
+    if ! command -v jq &>/dev/null; then
+        echo -e "${RED}Warning: jq not found. Install it for full functionality:${NC}"
+        echo "sudo pacman -Syyu jq"
+        echo ""
+        # Still continue, but some features might not work
+    fi
+
+    case "${1:-get}" in
+    add)
+        add_password
+        ;;
+    get)
+        get_password
+        ;;
+    list)
+        list_entries
+        ;;
+    delete)
+        delete_entry
+        ;;
+    help | --help | -h)
+        show_help
+        ;;
+    *)
+        echo "Unknown command: $1"
+        show_help
+        exit 1
+        ;;
+    esac
+
+    # Cleanup
+    rm -f "$TEMP_FILE"
+}
+
+main "$@"

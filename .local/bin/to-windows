@@ -1,0 +1,2 @@
+#!/bin/bash
+sudo grub-reboot 'osprober-efi-CE51-1600' && sudo reboot
