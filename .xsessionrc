@@ -1,0 +1,48 @@
+#!/bin/bash
+# Log only errors and critical messages
+XSERVERRC="$HOME/.xsession-errors"
+
+# Create empty log file
+> "$XSERVERRC"
+
+# Function to filter messages
+log_filter() {
+    while read line; do
+        # Only log lines containing error/warning/critical/failure
+        if [[ "$line" =~ (error|Error|ERROR|warning|Warning|WARNING|critical|Critical|CRITICAL|fail|Fail|FAIL) ]]; then
+            echo "$(date '+%Y-%m-%d %H:%M:%S'): $line" >> "$XSERVERRC"
+        fi
+    done
+}
+
+# Redirect stderr through filter
+exec 2> >(log_filter))
+
+# Turn off logs
+exec >/dev/null 2>&1
+
+# Reduce verbosity - only show errors
+export GTK_DEBUG=errors-only
+export QT_LOGGING_RULES="*.debug=false;*.warning=false"
+export G_MESSAGES_DEBUG=error
+export G_DEBUG=fatal-warnings
+
+# For specific applications
+export MOZ_LOG_FILE="/dev/null"
+export VLC_VERBOSE=0
+
+# Set log levels
+export POLYBAR_LOG_LEVEL=warn
+export PICOM_LOG_LEVEL=warn
+
+# ~/.xsessionrc - runs before WM starts
+
+export EDITOR=nvim
+
+# Set DPI for HiDPI screens
+export GDK_SCALE=2
+export QT_SCALE_FACTOR=2
+
+
+# Set GTK4/Libadwaita to dark mode
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark' &
