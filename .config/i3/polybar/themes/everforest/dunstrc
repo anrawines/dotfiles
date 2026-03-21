@@ -88,6 +88,7 @@
     frame_color = "#8F4226"
     timeout = 5
     highlight = "#8F4226"
+    default_icon = "~/.config/i3/dunst/icons/notification.png"
 
 [urgency_normal]
     background = "#21130e"
@@ -95,13 +96,15 @@
     frame_color = "#D7681D"
     timeout = 10
     highlight = "#8F4226"
+    default_icon = "~/.config/i3/dunst/icons/notification.png"
 
 [urgency_critical]
     background = "#21130e"
     foreground = "#c7c4c2"
     frame_color = "#D7681D"
-    timeout = 
+    timeout = 300
     highlight = "#D7681D"
+    default_icon = "~/.config/i3/dunst/icons/notification.png"
 
 [volume-ignore]
     summary = "*Volume:*"

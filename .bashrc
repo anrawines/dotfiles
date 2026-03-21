@@ -226,30 +226,26 @@ alias gclone='git clone'
 # git bare
 alias cfg='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
-# Lazy config commit "Time Stamp"
-cfgac() {
-  config add "$@"
-  config commit -m "Update: $(date '+%Y-%m-%d %H:%M')"
-}
-
 # Lazy config commit "Last Command"
 cfglazy() {
   local msg=$(history | tail -n 2 | head -n 1 | sed 's/^[ ]*[0-9]*[ ]*//')
-  config add "$@"
-  config commit -m "After: $msg"
+  cfg add "$@"
+  cfg commit -m "After: $msg"
 }
 
-cfgace() {
-  # If you provide arguments, add those. If not, add all modified tracked files.
+cfgac() {
+  # We use double quotes here so $HOME expands correctly
+  local _cfg="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+
   if [ $# -eq 0 ]; then
-    config add -u
+    $_cfg add -u
   else
-    config add "$@"
+    $_cfg add "$@"
   fi
   
-  # Only commit if there are actually changes to save
-  if ! config diff --cached --quiet; then
-    config commit -m "Update: $(date '+%Y-%m-%d %H:%M')"
+  # Added the missing 'diff' subcommand before '--cached'
+  if ! $_cfg diff --cached --quiet; then
+    $_cfg commit -m "Update: $(date '+%Y-%m-%d %H:%M')"
     echo "✔ Changes committed with timestamp."
   else
     echo "∅ No changes detected to commit."
