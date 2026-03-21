@@ -1,6 +1,12 @@
-#
-# ~/.zshrc
-#
+#	            ▄▄                
+#	            ██                
+#	▀▀▀██ ▄█▀▀▀ ████▄ ████▄ ▄████ 
+#	  ▄█▀ ▀███▄ ██ ██ ██ ▀▀ ██    
+#	▄██▄▄ ▄▄▄█▀ ██ ██ ██    ▀████ 
+#	
+# https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type+Something+&x=none&v=4&h=4&w=80&we=false
+# main 	: coder mini
+# sub   : calvin s                                                                    
 
 # This finds every directory inside ~/.local/bin and adds it to PATH
 export PATH="$HOME/.local/bin:$PATH"
@@ -44,8 +50,6 @@ zstyle ':fzf-tab:complete:bat:*' fzf-preview 'bat --color=always --theme=base16 
 zstyle ':fzf-tab:*' fzf-bindings 'space:accept'
 zstyle ':fzf-tab:*' accept-line enter
 
-
-
 #  ┌─┐┬  ┬ ┬┌─┐┬┌┐┌┌─┐
 #  ├─┘│  │ ││ ┬││││└─┐
 #  ┴  ┴─┘└─┘└─┘┴┘└┘└─┘
@@ -70,7 +74,7 @@ bindkey '^[^?' backward-kill-word
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
-# Penanganan history yang lebih baik di Zsh
+# History
 HISTFILE=~/.zsh_history
 HISTSIZE=5000
 SAVEHIST=5000
@@ -86,14 +90,13 @@ setopt hist_find_no_dups
 #  ┌─┐┌─┐┬ ┬  ┌─┐┌─┐┌─┐┬    ┌─┐┌─┐┌┬┐┬┌─┐┌┐┌┌─┐
 #  ┌─┘└─┐├─┤  │  │ ││ ││    │ │├─┘ │ ││ ││││└─┐
 #  └─┘└─┘┴ ┴  └─┘└─┘└─┘┴─┘  └─┘┴   ┴ ┴└─┘┘└┘└─┘
+
 setopt AUTOCD              # change directory just by typing its name
 setopt PROMPT_SUBST        # enable command substitution in prompt
 setopt MENU_COMPLETE       # Automatically highlight first element of completion menu
 setopt LIST_PACKED		   # The completion menu takes less space.
 setopt AUTO_LIST           # Automatically list choices on ambiguous completion.
 setopt COMPLETE_IN_WORD    # Complete from both ends of a word.
-
-
 
 # ============================================================================
 # EXPORTS
@@ -129,9 +132,11 @@ alias tobash="chsh $USER -s /bin/bash && echo 'Log out and log back in for chang
 alias tozsh="chsh $USER -s /bin/zsh && echo 'Log out and log back in for change to take effect.'"
 alias tofish="chsh $USER -s /bin/fish && echo 'Log out and log back in for change to take effect.'"
 
-# ============================================================================
-# ALIASES (Sama dengan Bash Anda)
-# ============================================================================
+## ============================================================================
+#	┌─┐┬  ┬┌─┐┌─┐
+#	├─┤│  │├─┤└─┐
+#	┴ ┴┴─┘┴┴ ┴└─┘
+## ============================================================================
 
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -267,11 +272,12 @@ fzi() {
 #grep -i 'windows' /boot/grub/grub.cfg
 alias towindows= sudo grub-reboot 'osprober-efi-CE51-1600' && reboot
 
-# ============================================================================
-# FOLDER
-# ============================================================================R
+## ============================================================================
+#	┌─┐┌─┐┬  ┌┬┐┌─┐┬─┐
+#	├┤ │ ││   ││├┤ ├┬┘
+#	└  └─┘┴─┘─┴┘└─┘┴└─
+## ============================================================================
 alias md='~/Documents/md'
-
 
 # GUI Apps Swallowing
 alias thunar='devour thunar'
@@ -281,9 +287,12 @@ alias evince='devour evince'
 alias mpv='devour mpv'
 alias sxiv='devour sxiv'
 alias zathura='devour zathura'
-# ============================================================================
-# FUNCTIONS
-# ============================================================================
+
+## ============================================================================
+#	┌─┐┬ ┬┌┐┌┌─┐┌┬┐┬┌─┐┌┐┌
+#	├┤ │ │││││   │ ││ ││││
+#	└  └─┘┘└┘└─┘ ┴ ┴└─┘┘└┘
+## ============================================================================
 
 # fastfetch images
 ffi() {

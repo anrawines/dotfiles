@@ -270,6 +270,11 @@ cfgac() {
   fi
 }
 
+#python
+alias vact='source venv/bin/activate'
+alias pipi='pip install -r'
+alias venvx='python -m venv venv'
+
 # ============================================================================
 # EDITORS AND CONFIG
 # ============================================================================
