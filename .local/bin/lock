@@ -1,0 +1,17 @@
+#!/bin/bash
+
+BANNER="$HOME/.local/bin/banner.png"
+TMP_BG="$HOME/.cache/screen_lock.png"
+TMP_SCREEN="$HOME/.cache/screenshot.png"
+
+# 1. Take a screenshot (overwrite)
+scrot -o "$TMP_SCREEN"
+
+# 2. Process everything in one go: Blur AND Overlay the Banner
+# This is more efficient than calling 'convert' then 'composite'
+magick "$TMP_SCREEN" -blur 0x8 \
+    "$BANNER" -gravity center -geometry +0-350 -composite \
+    "$TMP_BG"
+
+# 3. Lock the screen
+i3lock -i "$TMP_BG"

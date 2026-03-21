@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Kill any existing instances first
+pkill xidlehook
+
+# Run xidlehook with a 10-second timer for testing
+xidlehook \
+    --not-when-fullscreen \
+    --not-when-audio \
+    --timer 10 \
+    "notify-send 'IDLE: Triggering Lock' && $HOME/.local/bin/lock" \
+    ""
