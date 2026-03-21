@@ -3,3 +3,9 @@
 .bash_history
 .zsh_history
 .python_history
+.xsession-errors
+.xsession-errors.old
+.local/share/
+.config/VSCodium/
+.config/net.imput.helium/
+.cache/
