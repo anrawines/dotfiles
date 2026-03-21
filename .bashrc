@@ -228,9 +228,27 @@ alias cfg='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # Lazy config commit "Last Command"
 cfglazy() {
-  local msg=$(history | tail -n 2 | head -n 1 | sed 's/^[ ]*[0-9]*[ ]*//')
-  cfg add "$@"
-  cfg commit -m "After: $msg"
+  # 1. Define the full git command so it works inside the function
+  local _cfg="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+
+  # 2. Get the last command. 
+  # Note: 'fc -ln -1' is more reliable than 'history' inside a function for Zsh/Bash
+  local msg=$(fc -ln -1 | sed 's/^[[:space:]]*//')
+
+  # 3. Add files (if provided) or all modified tracked files (if no args)
+  if [ $# -eq 0 ]; then
+    $_cfg add -u
+  else
+    $_cfg add "$@"
+  fi
+
+  # 4. Commit with the last command as the message
+  if ! $_cfg diff --cached --quiet; then
+    $_cfg commit -m "After: $msg"
+    echo "✔ Committed with message: 'After: $msg'"
+  else
+    echo "∅ No changes to save."
+  fi
 }
 
 cfgac() {
