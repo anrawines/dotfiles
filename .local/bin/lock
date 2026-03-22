@@ -14,4 +14,4 @@ magick "$TMP_SCREEN" -blur 0x8 \
     "$TMP_BG"
 
 # 3. Lock the screen
-i3lock -i "$TMP_BG"
+i3lock --inside-color=00000000 --ring-color=ffffffaa -i "$TMP_BG"

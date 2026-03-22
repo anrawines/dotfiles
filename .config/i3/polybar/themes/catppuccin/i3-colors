@@ -2,7 +2,7 @@
 #     Color 
 ####################################
 # it fails to get colors from Xresources.
-set_from_resource $fg i3wm.color4 #7fbbb3
+set_from_resource $fg i3wm.color4 #197269
 set_from_resource $bg i3wm.color0 #2d353b
 
 # class                 border  backgr. text indicator child_border
