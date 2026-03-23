@@ -8,4 +8,17 @@
 .local/share/
 .config/VSCodium/
 .config/net.imput.helium/
+.npm/
+.parallel/
+.pki
+.gemini
+.java
+.cargo/
+Desktop/
+Downloads/
+Documents/
+Music/
+Picture/
+Videos/
+
 .cache/

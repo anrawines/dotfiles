@@ -1,6 +1,11 @@
-#
-# ~/.bashrc
-#
+#	
+#	▄▄                ▄▄                
+#	██                ██                
+#	████▄  ▀▀█▄ ▄█▀▀▀ ████▄ ████▄ ▄████ 
+#	██ ██ ▄█▀██ ▀███▄ ██ ██ ██ ▀▀ ██    
+#	████▀ ▀█▄██ ▄▄▄█▀ ██ ██ ██    ▀████ 
+#	
+
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -12,13 +17,10 @@ export HISTCONTROL=ignoredups:erasedups:ignorespace # no duplicate entries
 # readman page in vim
 export MANPAGER="vim +MANPAGER -"
 
-
 #default editor
 export EDITOR='micro'
 export VISUAL="$EDITOR"
 export BROWSER='firefox'
-
-
 
 if [ -d "$HOME/.local/bin" ]; then
     export PATH="$HOME/.local/bin:$PATH"
@@ -55,6 +57,17 @@ shopt -s direxpand
 
 eval "$(starship init bash)" # Jika pakai Bash
 
+# Set up zoxide
+# Mengganti perintah 'cd' secara total dengan 'z' milik zoxide
+if command -v zoxide >/dev/null 2>&1; then
+    eval "$(zoxide init bash --cmd cd)" # Gunakan bash jika Anda pakai bash
+fi
+
+eval "$(zoxide init bash)"
+
+# Set up fzf key bindings and fuzzy completion
+eval "$(fzf --bash)"
+
 # ============================================================================
 # NAVIGATION
 # ============================================================================
@@ -68,17 +81,6 @@ alias ~='cd ~'
 cl() {
     cd "$1" && ll
 }
-
-# Set up zoxide
-# Mengganti perintah 'cd' secara total dengan 'z' milik zoxide
-if command -v zoxide >/dev/null 2>&1; then
-    eval "$(zoxide init bash --cmd cd)" # Gunakan bash jika Anda pakai bash
-fi
-
-eval "$(zoxide init bash)"
-
-# Set up fzf key bindings and fuzzy completion
-eval "$(fzf --bash)"
 
 # ============================================================================
 # LS VARIANTS
@@ -114,7 +116,7 @@ alias cpn='cp -ivn'
 alias mv='mv -iv'
 alias mvn='mv -ivn'
 
-alias rm='rm -Iv'
+alias rm='rm -fr -Iv'
 
 alias mkdir='mkdir -pv'
 
@@ -191,7 +193,9 @@ check-logs() {
 alias lastins='grep -E "installed|removed" /var/log/pacman.log | tail -n 60'
 #list-app
 alias pactab='expac -H M "%m\t%n" | sort -h'
-
+# source fonts
+alias font='sudo fc-cache -f -v'
+# source xrdb
 alias merge="xrdb -merge ~/.Xresources"
 # ============================================================================
 # SYSTEM INFO
@@ -286,8 +290,6 @@ alias venvx='python -m venv venv'
 # ============================================================================
 alias v='nvim'
 alias vv='nvim .'
-alias e='micro'
-alias n='nano'
 
 # Config files
 alias reload='source ~/.bashrc && echo "Reloaded .bashrc"'
@@ -322,17 +324,14 @@ alias gv='cd ~/Media/Videos'
 alias x='exit'
 alias c='clear'
 alias h='history'
-alias j='jobs -l'
 alias which='type -a'
 alias now='date +"%Y-%m-%d %T"'
 alias week='date +%V'
 
 # Services
 alias service='systemctl list-units --type=service --state=running'
-
 # Disk usage
 alias biggest='du -h --max-depth=1 | sort -h'
-
 # Misc
 alias weather='curl wttr.in/orlando?u'
 #fastfetch
@@ -346,8 +345,6 @@ alias egrep="egrep --color=auto"
 alias fgrep="fgrep --color=auto"
 
 alias serv="ssh root@192.168.2.234"
-
-alias fc="sudo fc-cache -fv"
 
 extract() {
     if [ -f $1 ]; then
@@ -397,6 +394,7 @@ mkcd() {
         mkdir -p $1 && cd $1
     fi
 }
+
 cdls() {
     cd "$@" && l
 }

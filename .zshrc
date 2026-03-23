@@ -243,7 +243,6 @@ alias cx='chmod +x '
 
 alias font='sudo fc-cache -f -v'
 alias merge='xrdb -merge ~/.Xresources'
-alias chx='chmod +x'
 alias tree='tree -LaFc'
 alias trez='tree -LaFcs'
 
