@@ -4,7 +4,7 @@
 # Includes a 30-second notification warning
 xautolock -time 10 -locker "$HOME/.local/bin/lock" \
   -notify 30 \
-  -notifier "notify-send -u critical 'Locking in 30 seconds'" &
+  -notifier "notify-send -u normal -t 10000 'Locking in 30 seconds'" &
 
 # Set xidlehook to suspend the system after 20 minutes (1200 seconds)
 # --not-when-fullscreen: prevents suspension while watching videos

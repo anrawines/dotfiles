@@ -3,7 +3,7 @@
 ####################################
 ## hide border jika 1 window
 hide_edge_borders none 
-# smart_gaps on
+smart_gaps on
  
 ## gaps
 gaps inner 4

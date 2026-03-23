@@ -7,6 +7,12 @@ set mark-symlinked-directories on
 set menu-complete-display-prefix on
 set show-all-if-ambiguous on
 set completion-ignore-case on
+set skip-completed-text on
+set completion-query-items 200
+set enable-bracketed-paste on
 
+"\e[A": history-search-backward   # Up arrow
+"\e[B": history-search-forward    # Down arrow
 
-
+"\eh": backward-word
+"\el": forward-word
