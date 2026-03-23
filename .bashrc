@@ -9,10 +9,16 @@ PS1="\[\e[36m\][\u] \[\e[34m\]\w \[\e[33m\]❯ \[\e[0m\]"
 
 export TERM="xterm-256color"                        # getting proper colors
 export HISTCONTROL=ignoredups:erasedups:ignorespace # no duplicate entries
+# readman page in vim
+export MANPAGER="vim +MANPAGER -"
+
+
 #default editor
 export EDITOR='micro'
 export VISUAL="$EDITOR"
 export BROWSER='firefox'
+
+
 
 if [ -d "$HOME/.local/bin" ]; then
     export PATH="$HOME/.local/bin:$PATH"

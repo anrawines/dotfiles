@@ -15,6 +15,15 @@ set termguicolors
 set backspace=indent,eol,start
 set cmdheight=1
 syntax on
+set clipboard=unnamed,unnamedplus
+
+" Better man page colors
+runtime! ftplugin/man.vim
+" Or better yet, load man page syntax and settings
+"source $VIMRUNTIME/ftplugin/man.vim
+
+" Quick mappings in man pages
+autocmd FileType man nnoremap <buffer> q :q!<CR>
 
 " Set the duration of the flash (in milliseconds)
 let g:highlightedyank_highlight_duration = 300
