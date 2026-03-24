@@ -2,8 +2,8 @@
 #     Color 
 ####################################
 # it fails to get colors from Xresources.
-set_from_resource $fg i3wm.color4 #055963
-set_from_resource $bg i3wm.color0 #0c101b
+set_from_resource $fg i3wm.color4 #515151
+set_from_resource $bg i3wm.color0 #1D1D1D
 
 # class                 border  backgr. text indicator child_border
 client.focused 			$fg 	$fg 	$bg  $fg	   $fg
