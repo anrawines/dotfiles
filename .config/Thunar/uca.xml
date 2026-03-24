@@ -5,10 +5,10 @@
 	<name>Convert To JPEG</name>
 	<submenu></submenu>
 	<unique-id>1771707376115345-1</unique-id>
-	<command>magick %f -quality 85 $(baseename %n.png).jpeg</command>
+	<command>/home/lenoarch/.local/bin/img85.sh %F</command>
 	<description>compress 85%</description>
 	<range></range>
-	<patterns>*.jpg,*.png</patterns>
+	<patterns>*.png;*.jpg;*.jpeg;*.webp;*.bmp</patterns>
 	<startup-notify/>
 	<directories/>
 	<image-files/>
