@@ -36,6 +36,7 @@ Projects/
 Media/
 go/
 .vim/
+.fonts/
 .gnupg/
 .cache/
 .vscode-oss/
@@ -47,7 +48,8 @@ go/
 .config/geany/geany_socket*
 .config/geany/session.conf
 .config/qimgv/savedState.conf
-
+.config/fresh/plugins/
+.config/fresh/themes/
 
 # --- System & State Junk ---
 .local/state/

@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "theme": "berlin",
+  "locale": "en",
+  "editor": {
+    "tab_size": 4,
+    "line_numbers": true,
+    "line_wrap": false,
+    "use_terminal_bg": false
+  },
+  "file_browser": {
+    "show_hidden": true
+  },
+  "file_explorer": {
+    "show_hidden": true
+  }
+}
