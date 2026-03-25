@@ -44,3 +44,5 @@ go/
 .gnupg/
 .cache/
 .vscode-oss/
+.config/qimgv/savedState.conf
+.config/geany/session.conf
