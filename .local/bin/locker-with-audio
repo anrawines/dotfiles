@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Kill any existing instance
+pkill xidlehook
+
+xidlehook \
+  --not-when-fullscreen \
+  --not-when-audio \
+  `# TIMER 1: LOCK (after 10 minutes / 600 seconds)` \
+  --timer 600 \
+    "$HOME/.local/bin/lock" \
+    "" \
+  `# TIMER 2: SUSPEND (after another 10 minutes / 600 seconds)` \
+  --timer 600 \
+    "systemctl suspend" \
+    "" &

@@ -9,7 +9,7 @@ scrot -o "$TMP_SCREEN"
 
 # 2. Process everything in one go: Blur AND Overlay the Banner
 # This is more efficient than calling 'convert' then 'composite'
-magick "$TMP_SCREEN" -blur 0x8 \
+magick "$TMP_SCREEN" -blur 0x16 \
     "$BANNER" -gravity center -geometry +0-350 -composite \
     "$TMP_BG"
 

@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Kill any existing instance
+pkill xidlehook
+pkill xautolock
+
 # Set xautolock to trigger the 'lock' script after 10 minutes of inactivity
 # Includes a 30-second notification warning
 xautolock -time 10 -locker "$HOME/.local/bin/lock" \

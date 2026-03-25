@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Define icons (standard FontAwesome or similar)
+ICON_SAVER=""
+ICON_BALANCED=""
+
+# Get current status for the UI
+CURRENT=$(powerprofilesctl get)
+
+# Show YAD menu with only supported options
+CHOICE=$(yad --width=250 --title="Power Profile" \
+    --window-icon="preferences-system-power" \
+    --text="<b>Current:</b> $CURRENT" \
+    --list --radiolist --separator=" " \
+    --column="Select" --column="Profile" \
+    FALSE "power-saver" \
+    FALSE "balanced" \
+    --button="Apply:0" --button="Cancel:1" \
+    --center --on-top --close-on-unfocus)
+
+if [ $? -eq 0 ]; then
+    # Extract the second column (the profile name)
+    PROFILE=$(echo "$CHOICE" | awk '{print $2}')
+    
+    if [ -z "$PROFILE" ]; then exit 1; fi
+
+    powerprofilesctl set "$PROFILE"
+    notify-send -t 2000 "Power Profile" "Switched to $PROFILE"
+fi
