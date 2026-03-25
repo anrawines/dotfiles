@@ -9,16 +9,6 @@
 .python_history
 .xsession-errors
 .xsession-errors.old
-.local/share/
-.local/ABDownloadManager/
-.config/VSCodium/
-.config/net.imput.helium/
-.config/Electron/
-.config/geany/geany_socket*
-.abdm/
-.npm/
-.cmake/
-.parallel/
 .pki
 .gemini
 .java
@@ -28,6 +18,11 @@
 .XCompose
 .Xauthority
 .wget-hsts
+
+.abdm/
+.npm/
+.cmake/
+.parallel/
 .when/
 .cargo/
 Desktop/
@@ -44,5 +39,36 @@ go/
 .gnupg/
 .cache/
 .vscode-oss/
-.config/qimgv/savedState.conf
+.local/share/
+.local/ABDownloadManager/
+.config/VSCodium/
+.config/net.imput.helium/
+.config/Electron/
+.config/geany/geany_socket*
 .config/geany/session.conf
+.config/qimgv/savedState.conf
+
+
+# --- System & State Junk ---
+.local/state/
+.zcompdump*
+.jgmenu-lockfile
+.config/dconf/
+.config/pulse/
+.config/xfce4/
+.config/systemd/
+.config/user-dirs.dirs
+.config/user-dirs.locale
+
+# --- App Specific Bloat ---
+.mozilla/
+.config/QtProject.conf
+.config/fontconfig/
+.config/font-manager/
+.config/fontforge/
+.config/autostart/
+.clispot/
+.config/clispot/
+
+# --- Repo Protection ---
+.dotfiles/

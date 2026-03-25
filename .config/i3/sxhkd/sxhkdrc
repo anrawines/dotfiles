@@ -452,11 +452,11 @@ XF86AudioMute
 	 
 # Volume Up ( Media Key )
 XF86AudioRaiseVolume
-	pamixer -i 2 && ~/.config/i3/scripts/volume-dunst.sh
+	pactl set-sink-volume @DEFAULT_SINK@ +5%
 
 # Volume Down ( Media Key )
 XF86AudioLowerVolume
-	pamixer -d 2 && ~/.config/i3/scripts/volume-dunst.sh
+	pactl set-sink-volume @DEFAULT_SINK@ -5%
 
 # Volume Down
 super + F11
