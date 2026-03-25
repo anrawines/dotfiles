@@ -128,7 +128,7 @@ alias zip='bsdtar -xf'
 # ============================================================================
 # AUR yay
 # Upgrade system and AUR packages
-alias yay='yay -Syu --noconfirm'
+alias upgrades='yay -Syu --noconfirm'
 # Install packages
 alias yayi='yay -S'
 # Search packages
@@ -140,7 +140,7 @@ alias yayr='yay -Rns'
 
 # Arch pacman
 # Upgrade system only (no AUR)
-alias pac='sudo pacman -Syu --color auto'
+alias upgrade='sudo pacman -Syu --color auto'
 # Install packages
 alias paci='sudo pacman -S'
 # Search packages
@@ -202,6 +202,7 @@ alias merge="xrdb -merge ~/.Xresources"
 # ============================================================================
 alias df='df -h'
 alias du='du -h'
+alias top10="du -ah . 2>/dev/null | sort -rh | head -10"
 alias free='free -h'
 alias ps='ps auxf'
 alias top='btop || htop || top'

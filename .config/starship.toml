@@ -109,7 +109,7 @@ format = "[@$hostname]($style)[ ❯](#767676)"
 style = "fg:#c6e7ff bg:#002240 italic"
 format = "[ $path ]($style)"
 truncation_length = 3
-home_symbol = " ~/"
+home_symbol = " ~"
 truncation_symbol = ' '
 read_only = '󱧵 '
 read_only_style = ''
@@ -119,7 +119,7 @@ read_only_style = ''
 "Downloads" = " "
 "Music" = " "
 "Pictures" = " "
-"Project" = "󰲋 "
+"Projects" = "󰲋 "
 
 # --- Git Section (Tetap sama, sudah benar) ---
 [git_branch]
