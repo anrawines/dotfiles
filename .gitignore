@@ -18,6 +18,7 @@
 .XCompose
 .Xauthority
 .wget-hsts
+.gitconfig
 
 .abdm/
 .npm/
@@ -72,6 +73,8 @@ go/
 .config/autostart/
 .clispot/
 .config/clispot/
+.config/kando/
+.config/pacseek/
 
 # --- Repo Protection ---
 .dotfiles/
