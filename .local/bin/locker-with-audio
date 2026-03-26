@@ -7,7 +7,7 @@ xidlehook \
   --not-when-fullscreen \
   --not-when-audio \
   `# TIMER 1: LOCK (after 10 minutes / 600 seconds)` \
-  --timer 600 \
+  --timer 300 \
     "$HOME/.local/bin/lock" \
     "" \
   `# TIMER 2: SUSPEND (after another 10 minutes / 600 seconds)` \
