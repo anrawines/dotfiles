@@ -1,1 +1,1 @@
-/home/lenoarch/.config/i3/polybar/themes/candy/launch.sh
+/home/lenoarch/.config/i3/polybar/themes/catppuccin/launch.sh
