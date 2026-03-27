@@ -1,16 +1,30 @@
 #!/bin/bash
 
-# Kill any existing instance
+# 1. Disable default X11 'dumb' blanking
+xset s off
+xset dpms 0 0 0
+
+# 2. Clean up any old instances
 pkill xidlehook
 
+# 3. The Intelligent Idle Chain
+# Logic: Dim at 4m -> Off at 5m -> Lock at 10m -> Suspend at 20m
 xidlehook \
   --not-when-fullscreen \
   --not-when-audio \
-  `# TIMER 1: LOCK (after 10 minutes / 600 seconds)` \
+  `# 1. DIM: After 4 minutes (240s)` \
+  --timer 240 \
+    "brightnessctl set 10%" \
+    "brightnessctl set 100%" \
+  `# 2. OFF: 1 minute later (300s total)` \
+  --timer 60 \
+    "xset dpms force off" \
+    "xset dpms force on" \
+  `# 3. LOCK: 5 minutes later (600s total)` \
   --timer 300 \
     "$HOME/.local/bin/lock" \
     "" \
-  `# TIMER 2: SUSPEND (after another 10 minutes / 600 seconds)` \
+  `# 4. SUSPEND: 10 minutes later (1200s total)` \
   --timer 600 \
     "systemctl suspend" \
     "" &
