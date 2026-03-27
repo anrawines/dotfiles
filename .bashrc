@@ -328,6 +328,7 @@ alias h='history'
 alias which='type -a'
 alias now='date +"%Y-%m-%d %T"'
 alias week='date +%V'
+alias pkill='pkill -f'
 
 # Services
 alias service='systemctl list-units --type=service --state=running'
