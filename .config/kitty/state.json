@@ -1,0 +1,476 @@
+[
+  {
+    "active_tab_history": [],
+    "background_opacity": 0.699999988079071,
+    "id": 1,
+    "is_active": true,
+    "is_focused": true,
+    "last_focused": true,
+    "platform_window_id": 29360142,
+    "tabs": [
+      {
+        "active_window_history": [
+          1,
+          2,
+          3
+        ],
+        "enabled_layouts": [
+          "fat",
+          "grid",
+          "horizontal",
+          "splits",
+          "stack",
+          "tall",
+          "vertical"
+        ],
+        "groups": [
+          {
+            "id": 1,
+            "windows": [
+              1
+            ]
+          },
+          {
+            "id": 2,
+            "windows": [
+              2
+            ]
+          },
+          {
+            "id": 3,
+            "windows": [
+              3
+            ]
+          }
+        ],
+        "id": 1,
+        "is_active": true,
+        "is_focused": true,
+        "layout": "fat",
+        "layout_opts": {
+          "bias": 50,
+          "full_size": 1,
+          "mirrored": "n"
+        },
+        "layout_state": {
+          "all_windows": {
+            "active_group_history": [
+              1,
+              2,
+              3
+            ],
+            "active_group_idx": 0,
+            "window_groups": [
+              {
+                "id": 1,
+                "window_ids": [
+                  1
+                ]
+              },
+              {
+                "id": 2,
+                "window_ids": [
+                  2
+                ]
+              },
+              {
+                "id": 3,
+                "window_ids": [
+                  3
+                ]
+              }
+            ]
+          },
+          "biased_map": {},
+          "class": "Fat",
+          "main_bias": [
+            0.5,
+            0.5
+          ],
+          "opts": {
+            "bias": 50,
+            "full_size": 1,
+            "mirrored": "n"
+          }
+        },
+        "title": "./save-sessions.sh ~/.c/kitty",
+        "title_overridden": true,
+        "windows": [
+          {
+            "at_prompt": false,
+            "cmdline": [
+              "/usr/bin/fish",
+              "-c",
+              "/bin/sh ./save-sessions.sh; exec fish"
+            ],
+            "columns": 78,
+            "created_at": 1774700397973903960,
+            "cwd": "/home/lenoarch/.config/kitty",
+            "env": {
+              "KITTY_WINDOW_ID": "1",
+              "PWD": "/home/lenoarch/.config/kitty"
+            },
+            "foreground_processes": [
+              {
+                "cmdline": [
+                  "/usr/bin/fish",
+                  "-c",
+                  "/bin/sh ./save-sessions.sh; exec fish"
+                ],
+                "cwd": "/home/lenoarch/.config/kitty",
+                "pid": 183249
+              },
+              {
+                "cmdline": [
+                  "/bin/sh",
+                  "./save-sessions.sh"
+                ],
+                "cwd": "/home/lenoarch/.config/kitty",
+                "pid": 183295
+              },
+              {
+                "cmdline": [
+                  "kitten",
+                  "@",
+                  "ls"
+                ],
+                "cwd": "/home/lenoarch/.config/kitty",
+                "pid": 183296
+              }
+            ],
+            "id": 1,
+            "in_alternate_screen": false,
+            "is_active": true,
+            "is_focused": true,
+            "is_self": true,
+            "last_cmd_exit_status": 0,
+            "last_reported_cmdline": "",
+            "lines": 19,
+            "neighbors": {
+              "bottom": [
+                2,
+                3
+              ]
+            },
+            "pid": 183249,
+            "title": "fish",
+            "title_overridden": false,
+            "user_vars": {}
+          },
+          {
+            "at_prompt": false,
+            "cmdline": [
+              "/usr/bin/fish",
+              "-c",
+              "vim; exec fish"
+            ],
+            "columns": 39,
+            "created_at": 1774700398004712676,
+            "cwd": "/home/lenoarch",
+            "env": {
+              "KITTY_WINDOW_ID": "2",
+              "PWD": "/home/lenoarch"
+            },
+            "foreground_processes": [
+              {
+                "cmdline": [
+                  "/usr/bin/fish",
+                  "-c",
+                  "vim; exec fish"
+                ],
+                "cwd": "/home/lenoarch",
+                "pid": 183250
+              },
+              {
+                "cmdline": [],
+                "cwd": null,
+                "pid": 183331
+              }
+            ],
+            "id": 2,
+            "in_alternate_screen": false,
+            "is_active": false,
+            "is_focused": false,
+            "is_self": false,
+            "last_cmd_exit_status": 0,
+            "last_reported_cmdline": "",
+            "lines": 20,
+            "neighbors": {
+              "right": [
+                3
+              ],
+              "top": [
+                1
+              ]
+            },
+            "pid": 183250,
+            "title": "fish",
+            "title_overridden": false,
+            "user_vars": {}
+          },
+          {
+            "at_prompt": false,
+            "cmdline": [
+              "/usr/bin/fish",
+              "-c",
+              "top; exec fish"
+            ],
+            "columns": 39,
+            "created_at": 1774700398022390821,
+            "cwd": "/home/lenoarch",
+            "env": {
+              "KITTY_WINDOW_ID": "3",
+              "PWD": "/home/lenoarch"
+            },
+            "foreground_processes": [
+              {
+                "cmdline": [
+                  "/usr/bin/fish",
+                  "-c",
+                  "top; exec fish"
+                ],
+                "cwd": "/home/lenoarch",
+                "pid": 183251
+              },
+              {
+                "cmdline": [
+                  "top"
+                ],
+                "cwd": "/home/lenoarch",
+                "pid": 183293
+              }
+            ],
+            "id": 3,
+            "in_alternate_screen": false,
+            "is_active": false,
+            "is_focused": false,
+            "is_self": false,
+            "last_cmd_exit_status": 0,
+            "last_reported_cmdline": "",
+            "lines": 20,
+            "neighbors": {
+              "left": [
+                2
+              ],
+              "top": [
+                1
+              ]
+            },
+            "pid": 183251,
+            "title": "fish",
+            "title_overridden": false,
+            "user_vars": {}
+          }
+        ]
+      },
+      {
+        "active_window_history": [
+          4
+        ],
+        "enabled_layouts": [
+          "fat",
+          "grid",
+          "horizontal",
+          "splits",
+          "stack",
+          "tall",
+          "vertical"
+        ],
+        "groups": [
+          {
+            "id": 4,
+            "windows": [
+              4
+            ]
+          }
+        ],
+        "id": 2,
+        "is_active": false,
+        "is_focused": false,
+        "layout": "fat",
+        "layout_opts": {
+          "bias": 50,
+          "full_size": 1,
+          "mirrored": "n"
+        },
+        "layout_state": {
+          "all_windows": {
+            "active_group_history": [
+              4
+            ],
+            "active_group_idx": 0,
+            "window_groups": [
+              {
+                "id": 4,
+                "window_ids": [
+                  4
+                ]
+              }
+            ]
+          },
+          "biased_map": {},
+          "class": "Fat",
+          "main_bias": [
+            0.5,
+            0.5
+          ],
+          "opts": {
+            "bias": 50,
+            "full_size": 1,
+            "mirrored": "n"
+          }
+        },
+        "title": "~",
+        "title_overridden": true,
+        "windows": [
+          {
+            "at_prompt": false,
+            "cmdline": [
+              "/usr/bin/fish",
+              "-c",
+              "fish; exec fish"
+            ],
+            "columns": 79,
+            "created_at": 1774700398090480684,
+            "cwd": "/home/lenoarch",
+            "env": {
+              "KITTY_WINDOW_ID": "4",
+              "PWD": "/home/lenoarch"
+            },
+            "foreground_processes": [
+              {
+                "cmdline": [
+                  "/usr/bin/fish",
+                  "-c",
+                  "fish; exec fish"
+                ],
+                "cwd": "/home/lenoarch",
+                "pid": 183258
+              }
+            ],
+            "id": 4,
+            "in_alternate_screen": false,
+            "is_active": true,
+            "is_focused": true,
+            "is_self": false,
+            "last_cmd_exit_status": 0,
+            "last_reported_cmdline": "",
+            "lines": 40,
+            "neighbors": {
+              "bottom": []
+            },
+            "pid": 183258,
+            "title": "fish",
+            "title_overridden": false,
+            "user_vars": {}
+          }
+        ]
+      },
+      {
+        "active_window_history": [
+          5
+        ],
+        "enabled_layouts": [
+          "fat",
+          "grid",
+          "horizontal",
+          "splits",
+          "stack",
+          "tall",
+          "vertical"
+        ],
+        "groups": [
+          {
+            "id": 5,
+            "windows": [
+              5
+            ]
+          }
+        ],
+        "id": 3,
+        "is_active": false,
+        "is_focused": false,
+        "layout": "fat",
+        "layout_opts": {
+          "bias": 50,
+          "full_size": 1,
+          "mirrored": "n"
+        },
+        "layout_state": {
+          "all_windows": {
+            "active_group_history": [
+              5
+            ],
+            "active_group_idx": 0,
+            "window_groups": [
+              {
+                "id": 5,
+                "window_ids": [
+                  5
+                ]
+              }
+            ]
+          },
+          "biased_map": {},
+          "class": "Fat",
+          "main_bias": [
+            0.5,
+            0.5
+          ],
+          "opts": {
+            "bias": 50,
+            "full_size": 1,
+            "mirrored": "n"
+          }
+        },
+        "title": "~",
+        "title_overridden": true,
+        "windows": [
+          {
+            "at_prompt": false,
+            "cmdline": [
+              "/usr/bin/fish",
+              "-c",
+              "fish; exec fish"
+            ],
+            "columns": 79,
+            "created_at": 1774700398125396410,
+            "cwd": "/home/lenoarch",
+            "env": {
+              "KITTY_WINDOW_ID": "5",
+              "PWD": "/home/lenoarch"
+            },
+            "foreground_processes": [
+              {
+                "cmdline": [
+                  "/usr/bin/fish",
+                  "-c",
+                  "fish; exec fish"
+                ],
+                "cwd": "/home/lenoarch",
+                "pid": 183262
+              }
+            ],
+            "id": 5,
+            "in_alternate_screen": false,
+            "is_active": true,
+            "is_focused": true,
+            "is_self": false,
+            "last_cmd_exit_status": 0,
+            "last_reported_cmdline": "",
+            "lines": 40,
+            "neighbors": {
+              "bottom": []
+            },
+            "pid": 183262,
+            "title": "fish",
+            "title_overridden": false,
+            "user_vars": {}
+          }
+        ]
+      }
+    ],
+    "wm_class": "kitty",
+    "wm_name": "kitty"
+  }
+]

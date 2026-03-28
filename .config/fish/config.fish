@@ -97,7 +97,9 @@ if status is-interactive
 
     # Bind Ctrl+G untuk menjalankan fungsi helpme
     bind \cg helpme
-    
+
+    #kitty session load
+    alias loadsession='kitty @ focus-window; and kitty @ load-config --session ~/.config/kitty/mysession.session'
 end
 
 ### --- FUNGSI TAMBAHAN (OPSIONAL) --- ###

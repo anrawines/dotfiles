@@ -1,0 +1,11 @@
+new_tab ./save-sessions.sh ~/.c/kitty
+layout fat
+launch --cwd /home/lenoarch/.config/kitty fish -c "/usr/bin/fish -c /bin/sh ./save-sessions.sh; exec fish; exec fish"
+launch --location=vsplit --cwd /home/lenoarch fish -c "/usr/bin/fish -c vim; exec fish; exec fish"
+launch --location=vsplit --cwd /home/lenoarch fish -c "/usr/bin/fish -c top; exec fish; exec fish"
+new_tab ~
+layout fat
+launch --cwd /home/lenoarch fish -c "/usr/bin/fish -c fish; exec fish; exec fish"
+new_tab ~
+layout fat
+launch --cwd /home/lenoarch fish -c "/usr/bin/fish -c fish; exec fish; exec fish"
