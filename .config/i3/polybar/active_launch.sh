@@ -1,1 +1,1 @@
-/home/lenoarch/.config/i3/polybar/themes/everforest/launch.sh
+/home/lenoarch/.config/i3/polybar/themes/midnight/launch.sh
