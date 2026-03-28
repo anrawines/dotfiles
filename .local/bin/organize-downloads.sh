@@ -109,6 +109,7 @@ while IFS= read -r -d '' file; do
 
 done < <(find "$DOWNLOAD_DIR" -maxdepth 1 -type f -print0)
 
+notify-send "Organized Complete" "Processed $moved file(s)"
 echo ""
 echo "─────────────────────────────────────────────"
 if $DRY_RUN; then
