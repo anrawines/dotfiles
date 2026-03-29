@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 for file in "$@"; do
     if [[ "$file" =~ \.(jpg|jpeg|png|webp|bmp)$ ]]; then
         echo "Compressing: $(basename "$file")"

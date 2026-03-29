@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Get weather data
 weather_data=$(curl -s "https://wttr.in/1.054507,104.004120?format=%t+%C" 2>/dev/null)
