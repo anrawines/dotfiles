@@ -208,7 +208,7 @@ alias ps='ps auxf'
 alias top='btop || htop || top'
 alias mem='free -h && echo && ps aux | head -1 && ps aux | sort -rnk 4 | head -5'
 alias cpu='ps aux | head -1 && ps aux | sort -rnk 3 | head -5'
-
+alias logman='grep 'ExecStart=' /etc/systemd/system/display-manager.service'
 # ============================================================================
 # NETWORK
 # ============================================================================

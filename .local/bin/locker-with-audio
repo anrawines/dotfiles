@@ -21,10 +21,10 @@ xidlehook \
     "xset dpms force off" \
     "xset dpms force on" \
   `# 3. LOCK: 5 minutes later (600s total)` \
-  --timer 300 \
+  --timer 150 \
     "$HOME/.local/bin/lock" \
     "" \
   `# 4. SUSPEND: 10 minutes later (1200s total)` \
-  --timer 600 \
+  --timer 300 \
     "systemctl suspend" \
     "" &

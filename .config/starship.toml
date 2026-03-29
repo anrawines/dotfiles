@@ -2,7 +2,11 @@
 # add_newline = false
 continuation_prompt = "[╰─ ](bold green)"
 command_timeout = 1000 # (default is 500)
-
+# Pipes ╰─ ╭─
+# Powerline symbols                                     
+# Wedges 🭧🭒 🭣🭧🭓
+# Random noise 🬖🬥🬔🬗
+# Cool stuff 󰜥   
 #[░▒▓](#a3aed2)\
 #[▓▒░](#a3aed2)\
 #[](bg:#769ff0 fg:#a3aed2)\
@@ -61,8 +65,9 @@ symbol = ' '
 
 [character]
 success_symbol = "[❯](bold green)"
-error_symbol = "[×](bold red)"
+error_symbol = "[](bold red)"
 vicmd_symbol = "[❮](green)[❮](yellow)[❮](red)"
+
 
 ## LEFT
 
@@ -115,11 +120,15 @@ read_only = '󱧵 '
 read_only_style = ''
 
 [directory.substitutions]
-"Documents" = "󰈙 "
+#"Documents" = "󰈙 "
 "Downloads" = " "
 "Music" = " "
 "Pictures" = " "
 "Projects" = "󰲋 "
+"Desktop" = "  "
+"Documents" = "  "
+"Videos" = "  "
+"GitHub" = " 󰊤 "
 
 # --- Git Section (Tetap sama, sudah benar) ---
 [git_branch]
