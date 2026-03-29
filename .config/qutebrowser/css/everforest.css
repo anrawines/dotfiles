@@ -1,0 +1,55 @@
+/* Everforest Theme - Natural forest greens */
+
+::-webkit-scrollbar {
+    width: 10px;
+    background: #2d353b;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #a7c080;
+    border: 2px solid #2d353b;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #dbbc7f;
+}
+
+::selection {
+    background: #a7c080;
+    color: #2d353b;
+}
+
+input, textarea {
+    background-color: #343f44 !important;
+    color: #d3c6aa !important;
+    border: 1px solid #a7c080 !important;
+}
+
+input:focus, textarea:focus {
+    border-color: #dbbc7f !important;
+}
+
+button {
+    background: #343f44 !important;
+    color: #a7c080 !important;
+    border: 1px solid #a7c080 !important;
+}
+
+button:hover {
+    background: #a7c080 !important;
+    color: #2d353b !important;
+}
+
+a {
+    color: #a7c080 !important;
+}
+
+a:hover {
+    color: #dbbc7f !important;
+}
+
+pre, code {
+    background: #343f44 !important;
+    color: #d3c6aa !important;
+    border: 1px solid #a7c080 !important;
+}

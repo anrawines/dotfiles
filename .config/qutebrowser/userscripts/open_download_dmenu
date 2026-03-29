@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+set -e
+
+DOWNLOAD_DIR=${DOWNLOAD_DIR:-$QUTE_DOWNLOAD_DIR}
+DOWNLOAD_DIR=${DOWNLOAD_DIR:-$HOME/Downloads}
+
+msg() {
+    local cmd="$1"
+    shift
+    local msg="$*"
+    if [ -z "$QUTE_FIFO" ] ; then
+        echo "$cmd: $msg" >&2
+    else
+        echo "message-$cmd '${msg//\'/\\\'}'" >> "$QUTE_FIFO"
+    fi
+}
+
+die() {
+    msg error "$*"
+    exit 0
+}
+
+if ! [ -d "$DOWNLOAD_DIR" ] ; then
+    die "Download directory »$DOWNLOAD_DIR« not found!"
+fi
+
+if ! command -v dmenu > /dev/null ; then
+    die "dmenu not found in PATH!"
+fi
+
+# Seřadit soubory podle času (nejnovější první)
+files=$(ls -1t "$DOWNLOAD_DIR" 2>/dev/null | head -20)
+
+if [ -z "$files" ] ; then
+    die "Download directory »$DOWNLOAD_DIR« empty"
+fi
+
+# Zobrazit v dmenu a vybrat
+file=$(echo "$files" | dmenu -i -l 10 -p "Otevřít:") || exit 0
+
+if [ -z "$file" ] ; then
+    exit 0
+fi
+
+path="$DOWNLOAD_DIR/$file"
+
+if [ ! -f "$path" ] ; then
+    die "File not found: $path"
+fi
+
+msg info "Opening »$file«"
+xdg-open "$path"

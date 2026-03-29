@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Tento skript extrahuje všechny bindy z config.py a zobrazí je v dmenu/rofi
+
+CONFIG_FILE="$HOME/.config/qutebrowser/config.py"
+
+# Vytáhni všechny config.bind řádky a zformátuj je
+BINDS=$(grep "config.bind" "$CONFIG_FILE" | \
+    sed "s/config.bind('\([^']*\)',.*'\([^']*\)'.*/\1  →  \2/" | \
+    sed "s/--userscript //" | \
+    sort)
+
+# Zobraz v dmenu s vyhledáváním
+echo "$BINDS" | dmenu -i -l 20 -p "Všechny zkratky:" -c
+
+# Pokud chceš rofi:
+# echo "$BINDS" | rofi -dmenu -i -p "Všechny zkratky:" -theme-str 'window { width: 60%; }'

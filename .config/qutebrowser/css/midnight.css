@@ -1,0 +1,55 @@
+/* Midnight Theme - Pure black with bronze accents */
+
+::-webkit-scrollbar {
+    width: 10px;
+    background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #8b6914;
+    border: 2px solid #000000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #6b3410;
+}
+
+::selection {
+    background: #8b6914;
+    color: #d0d0d0;
+}
+
+input, textarea {
+    background-color: #0d0d0d !important;
+    color: #a0a0a0 !important;
+    border: 1px solid #8b6914 !important;
+}
+
+input:focus, textarea:focus {
+    border-color: #6b3410 !important;
+}
+
+button {
+    background: #0d0d0d !important;
+    color: #8b6914 !important;
+    border: 1px solid #8b6914 !important;
+}
+
+button:hover {
+    background: #8b6914 !important;
+    color: #d0d0d0 !important;
+}
+
+a {
+    color: #8b6914 !important;
+}
+
+a:hover {
+    color: #6b3410 !important;
+}
+
+pre, code {
+    background: #0d0d0d !important;
+    color: #a0a0a0 !important;
+    border: 1px solid #8b6914 !important;
+}

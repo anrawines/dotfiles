@@ -1,0 +1,55 @@
+/* Nord Theme - Arctic frost palette */
+
+::-webkit-scrollbar {
+    width: 10px;
+    background: #2e3440;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #88c0d0;
+    border: 2px solid #2e3440;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #81a1c1;
+}
+
+::selection {
+    background: #88c0d0;
+    color: #2e3440;
+}
+
+input, textarea {
+    background-color: #3b4252 !important;
+    color: #eceff4 !important;
+    border: 1px solid #88c0d0 !important;
+}
+
+input:focus, textarea:focus {
+    border-color: #81a1c1 !important;
+}
+
+button {
+    background: #3b4252 !important;
+    color: #88c0d0 !important;
+    border: 1px solid #88c0d0 !important;
+}
+
+button:hover {
+    background: #88c0d0 !important;
+    color: #2e3440 !important;
+}
+
+a {
+    color: #88c0d0 !important;
+}
+
+a:hover {
+    color: #81a1c1 !important;
+}
+
+pre, code {
+    background: #3b4252 !important;
+    color: #eceff4 !important;
+    border: 1px solid #88c0d0 !important;
+}

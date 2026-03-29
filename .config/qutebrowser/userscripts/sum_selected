@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Pokud není text vybrán, skonči
+if [ -z "$QUTE_SELECTED_TEXT" ]; then
+    notify-send "Chyba" "Nebyly vybrány žádné hodnoty."
+    exit 1
+fi
+
+# Extrahuj všechna čísla (včetně čísel s desetinnou čárkou a mezerou)
+# Nahraď čárky za tečky (kvůli bc)
+NUMBERS=$(echo "$QUTE_SELECTED_TEXT" | grep -oE '[0-9]+([.,][0-9]+)?' | sed 's/,/./g')
+
+# Pokud není žádné číslo, upozorni
+if [ -z "$NUMBERS" ]; then
+    notify-send "Chyba" "V textu nejsou žádná čísla."
+    exit 1
+fi
+
+# Sečti všechna čísla pomocí bc
+RESULT=$(echo "$NUMBERS" | paste -sd+ - | bc)
+
+# Zobraz výsledek
+notify-send -u normal -t 5000 "Součet čísel:" "$RESULT"

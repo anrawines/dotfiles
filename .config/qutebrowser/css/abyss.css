@@ -1,0 +1,55 @@
+/* Abyss Theme - Deep dark with teal accents */
+
+::-webkit-scrollbar {
+    width: 10px;
+    background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2d8080;
+    border: 2px solid #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #6b4d9d;
+}
+
+::selection {
+    background: #2d8080;
+    color: #e0e0e0;
+}
+
+input, textarea {
+    background-color: #0f0f0f !important;
+    color: #b0b0b0 !important;
+    border: 1px solid #2d8080 !important;
+}
+
+input:focus, textarea:focus {
+    border-color: #6b4d9d !important;
+}
+
+button {
+    background: #0f0f0f !important;
+    color: #2d8080 !important;
+    border: 1px solid #2d8080 !important;
+}
+
+button:hover {
+    background: #2d8080 !important;
+    color: #e0e0e0 !important;
+}
+
+a {
+    color: #2d8080 !important;
+}
+
+a:hover {
+    color: #6b4d9d !important;
+}
+
+pre, code {
+    background: #0f0f0f !important;
+    color: #b0b0b0 !important;
+    border: 1px solid #2d8080 !important;
+}

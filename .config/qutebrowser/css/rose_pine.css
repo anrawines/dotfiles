@@ -1,0 +1,55 @@
+/* Rose Pine Theme - All natural pine */
+
+::-webkit-scrollbar {
+    width: 10px;
+    background: #191724;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ebbcba;
+    border: 2px solid #191724;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #c4a7e7;
+}
+
+::selection {
+    background: #ebbcba;
+    color: #191724;
+}
+
+input, textarea {
+    background-color: #1f1d2e !important;
+    color: #e0def4 !important;
+    border: 1px solid #ebbcba !important;
+}
+
+input:focus, textarea:focus {
+    border-color: #c4a7e7 !important;
+}
+
+button {
+    background: #1f1d2e !important;
+    color: #ebbcba !important;
+    border: 1px solid #ebbcba !important;
+}
+
+button:hover {
+    background: #ebbcba !important;
+    color: #191724 !important;
+}
+
+a {
+    color: #ebbcba !important;
+}
+
+a:hover {
+    color: #c4a7e7 !important;
+}
+
+pre, code {
+    background: #1f1d2e !important;
+    color: #e0def4 !important;
+    border: 1px solid #ebbcba !important;
+}

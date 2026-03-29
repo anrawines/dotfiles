@@ -1,0 +1,14 @@
+/* Hide all scrollbars */
+::-webkit-scrollbar {
+    width: 0px !important;
+    height: 0px !important;
+    background: transparent !important;
+}
+
+* {
+    scrollbar-width: none !important;
+}
+
+body::-webkit-scrollbar {
+    display: none !important;
+}

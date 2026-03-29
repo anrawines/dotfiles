@@ -1,0 +1,18 @@
+/* Skryj videa s AI slovy v názvu */
+ytd-rich-item-renderer:has(#video-title[aria-label*="AI"]),
+ytd-rich-item-renderer:has(#video-title[aria-label*="artificial intelligence"]),
+ytd-rich-item-renderer:has(#video-title[aria-label*="ChatGPT"]),
+ytd-rich-item-renderer:has(#video-title[aria-label*="AI generated"]) {
+  display: none !important;
+}
+
+/* Stejné pro compact videa */
+ytd-compact-video-renderer:has(#video-title[aria-label*="AI"]),
+ytd-compact-video-renderer:has(#video-title[aria-label*="ChatGPT"]) {
+  display: none !important;
+}
+
+/* Pro Shorts */
+ytd-reel-video-renderer:has(#video-title[aria-label*="AI"]) {
+  display: none !important;
+}

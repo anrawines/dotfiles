@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ -z "$QUTE_SELECTED_TEXT" ]; then
+    notify-send "Chyba" "Nebyl vybrán text."
+    exit 1
+fi
+
+# Vytvoř dočasný CSV/ODS soubor
+TEMP_FILE=$(mktemp --suffix=.csv)
+
+# Nahraď čárky a mezery za oddělovače
+echo "$QUTE_SELECTED_TEXT" | sed 's/[[:space:]]\+/,/g' > "$TEMP_FILE"
+
+# Otevři v LibreOffice Calc
+setsid libreoffice --calc "$TEMP_FILE" > /dev/null 2>&1 &
+
+notify-send "Kalkulačka" "Otevírám soubor v LibreOffice Calc..."

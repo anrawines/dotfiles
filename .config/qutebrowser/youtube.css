@@ -1,0 +1,5 @@
+.ytp-ad-overlay-image,
+.ytp-ad-skip-button,
+.ytp-ad-duration-remaining {
+    display: none !important;
+}

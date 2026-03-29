@@ -1,0 +1,12 @@
+#!/bin/bash
+HISTORY_FILE="$HOME/.local/share/mpv-url-history"
+
+[ -f "$HISTORY_FILE" ] || exit 1
+
+# Vyber položku přes rofi
+SELECTED=$(tac "$HISTORY_FILE" | rofi -dmenu -i -p "MPV historie:")
+
+# Extrahuj URL (poslední sloupec)
+URL=$(echo "$SELECTED" | awk '{print $NF}')
+
+[ -n "$URL" ] && /usr/local/bin/mpv-history "$URL"

@@ -1,0 +1,55 @@
+/* Buddha Theme - Zen temple tranquility */
+
+::-webkit-scrollbar {
+    width: 10px;
+    background: #2b2520;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4a9b8e;
+    border: 2px solid #2b2520;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #c9a961;
+}
+
+::selection {
+    background: #4a9b8e;
+    color: #2b2520;
+}
+
+input, textarea {
+    background-color: #3d3530 !important;
+    color: #d4c8b8 !important;
+    border: 1px solid #4a9b8e !important;
+}
+
+input:focus, textarea:focus {
+    border-color: #c9a961 !important;
+}
+
+button {
+    background: #3d3530 !important;
+    color: #4a9b8e !important;
+    border: 1px solid #4a9b8e !important;
+}
+
+button:hover {
+    background: #4a9b8e !important;
+    color: #2b2520 !important;
+}
+
+a {
+    color: #4a9b8e !important;
+}
+
+a:hover {
+    color: #c9a961 !important;
+}
+
+pre, code {
+    background: #3d3530 !important;
+    color: #d4c8b8 !important;
+    border: 1px solid #4a9b8e !important;
+}

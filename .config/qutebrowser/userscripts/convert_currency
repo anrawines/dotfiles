@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# Pokud není text vybrán, skonči
+if [ -z "$QUTE_SELECTED_TEXT" ]; then
+    notify-send "Chyba" "Nebyla vybrána částka."
+    exit 1
+fi
+
+# Extrahuj první číslo z textu
+AMOUNT=$(echo "$QUTE_SELECTED_TEXT" | grep -oE '[0-9]+([.,][0-9]+)?' | head -1 | sed 's/,/./g')
+
+if [ -z "$AMOUNT" ]; then
+    notify-send "Chyba" "V textu není číslo."
+    exit 1
+fi
+
+# Stáhni aktuální kurzy z API (Nejjednoduší je używat xe.com nebo oanda, ale třeba też třetího)
+# Zde používám `curl` s `jq` parserem
+# API: https://api.exchangerate-api.com (zdarma, žádné API klíče)
+
+RESULT=$(curl -s "https://api.exchangerate-api.com/v4/latest/CZK" | jq -r ".rates.USD, .rates.EUR")
+
+read EUR USD <<< "$RESULT"
+
+# Přepočítej na USD a EUR
+CZK_TO_USD=$(echo "$AMOUNT * $USD" | bc -l | xargs printf "%.2f")
+CZK_TO_EUR=$(echo "$AMOUNT * $EUR" | bc -l | xargs printf "%.2f")
+
+# Zobraz výsledek
+RESULT_TEXT="$AMOUNT CZK
+
+USD: $CZK_TO_USD
+EUR: $CZK_TO_EUR"
+
+notify-send -u normal -t 8000 "Přepočet měny:" "$RESULT_TEXT"

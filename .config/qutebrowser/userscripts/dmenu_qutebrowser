@@ -1,0 +1,32 @@
+#!/bin/bash
+# Minimalistický dmenu skript pro Qutebrowser (Google + 3 řádky)
+
+# 1. Získej historii (URL a Titulek) - posledních 300 unikátních
+HISTORY=$(sqlite3 -separator ' ' "$QUTE_DATA_DIR/history.sqlite" 'select url, title from CompletionHistory' | tail -n 300 | sort -u)
+
+# 2. Spusť DMENU
+# -l 3   = Zobrazí jen 3 řádky výsledků (ne přes celou obrazovku)
+# -p "Go" = Prompt "Go"
+# -i     = Case insensitive (velká/malá písmena)
+# -b     = Bottom (chceš lištu dole? Pokud ano, nech tam -b. Pokud nahoře, smaž -b)
+CHOICE=$(echo "$HISTORY" | dmenu -l 3 -p "Go:" -i)
+
+# 3. Pokud nic nevybral (ESC), konec
+[ -z "$CHOICE" ] && exit 1
+
+# 4. Získej čistou URL (první sloupec je URL, zbytek titulek)
+URL=$(echo "$CHOICE" | awk '{print $1}')
+
+# 5. Rozhodni: Je to URL nebo vyhledávání?
+if [[ "$URL" =~ ^https?:// ]] || [[ "$URL" =~ ^www\. ]] || [[ "$URL" =~ \.[a-z]{2,4}/?$ ]]; then
+    # Je to validní URL -> otevři
+    FINAL_URL="$URL"
+else
+    # Není to URL -> použij to, co uživatel napsal do dmenu, jako Google dotaz
+    # (CHOICE obsahuje celý text, co jsi napsal)
+    QUERY="${CHOICE// /%20}"
+    FINAL_URL="https://www.google.com/search?q=${QUERY}"
+fi
+
+# 6. Pošli do Qutebrowseru
+echo "open -t $FINAL_URL" >> "$QUTE_FIFO"

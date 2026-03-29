@@ -1,0 +1,7 @@
+#!/bin/bash
+# Otevře označený text v Perplexity.ai
+
+QUERY="${QUTE_SELECTED_TEXT//$'\n'/%0A}"
+QUERY="${QUERY// /%20}"
+
+echo "open -t https://www.perplexity.ai/?q=${QUERY}" >> "$QUTE_FIFO"

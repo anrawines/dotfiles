@@ -1,0 +1,107 @@
+/* Rosé Pine Moon - Moonlit garden, darker variant */
+/* Paleta: bg #0f0e17, fg #6d6582, akcent #ea9a97, tyrkys #3e8fb0 */
+
+::-webkit-scrollbar {
+    width: 10px;
+    background: #0f0e17;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ea9a97;
+    border: 2px solid #0f0e17;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #3e8fb0;
+}
+
+::selection {
+    background: #ea9a97;
+    color: #0f0e17;
+}
+
+/* Inputy a textarey */
+input, textarea, select {
+    background-color: #1a1826 !important;
+    color: #6d6582 !important;
+    border: 1px solid #ea9a97 !important;
+    border-radius: 4px !important;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: #3e8fb0 !important;
+    outline: none !important;
+    box-shadow: 0 0 4px #ea9a9744 !important;
+}
+
+/* Tlačítka */
+button {
+    background: #1a1826 !important;
+    color: #ea9a97 !important;
+    border: 1px solid #ea9a97 !important;
+    border-radius: 4px !important;
+}
+
+button:hover {
+    background: #ea9a97 !important;
+    color: #0f0e17 !important;
+}
+
+/* Odkazy */
+a {
+    color: #ea9a97 !important;
+}
+
+a:hover {
+    color: #9ccfd8 !important;
+    text-decoration: underline !important;
+}
+
+a:visited {
+    color: #7a6880 !important;
+}
+
+/* Kód */
+pre, code {
+    background: #080710 !important;
+    color: #9ccfd8 !important;
+    border: 1px solid #1a1826 !important;
+    border-radius: 4px !important;
+}
+
+/* Horizontální oddělovač */
+hr {
+    border: none !important;
+    border-top: 1px solid #1a1826 !important;
+}
+
+/* Citace */
+blockquote {
+    border-left: 3px solid #3e8fb0 !important;
+    color: #2e2b3d !important;
+    background: #080710 !important;
+    padding-left: 1em !important;
+}
+
+/* Tabulky */
+table {
+    border-collapse: collapse !important;
+}
+
+th {
+    background: #1a1826 !important;
+    color: #ea9a97 !important;
+    border: 1px solid #2e2b3d !important;
+    padding: 6px 12px !important;
+}
+
+td {
+    background: #0f0e17 !important;
+    color: #6d6582 !important;
+    border: 1px solid #1a1826 !important;
+    padding: 6px 12px !important;
+}
+
+tr:nth-child(even) td {
+    background: #080710 !important;
+}

@@ -1,0 +1,55 @@
+/* One Dark Theme - Atom editor inspired */
+
+::-webkit-scrollbar {
+    width: 10px;
+    background: #282c34;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #61afef;
+    border: 2px solid #282c34;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #c678dd;
+}
+
+::selection {
+    background: #61afef;
+    color: #282c34;
+}
+
+input, textarea {
+    background-color: #3b4048 !important;
+    color: #abb2bf !important;
+    border: 1px solid #61afef !important;
+}
+
+input:focus, textarea:focus {
+    border-color: #c678dd !important;
+}
+
+button {
+    background: #3b4048 !important;
+    color: #61afef !important;
+    border: 1px solid #61afef !important;
+}
+
+button:hover {
+    background: #61afef !important;
+    color: #282c34 !important;
+}
+
+a {
+    color: #61afef !important;
+}
+
+a:hover {
+    color: #c678dd !important;
+}
+
+pre, code {
+    background: #3b4048 !important;
+    color: #abb2bf !important;
+    border: 1px solid #61afef !important;
+}

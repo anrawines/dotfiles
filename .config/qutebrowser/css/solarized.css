@@ -1,0 +1,55 @@
+/* Solarized Theme - Precision colors for machines */
+
+::-webkit-scrollbar {
+    width: 10px;
+    background: #002b36;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #268bd2;
+    border: 2px solid #002b36;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #b58900;
+}
+
+::selection {
+    background: #268bd2;
+    color: #002b36;
+}
+
+input, textarea {
+    background-color: #073642 !important;
+    color: #839496 !important;
+    border: 1px solid #268bd2 !important;
+}
+
+input:focus, textarea:focus {
+    border-color: #b58900 !important;
+}
+
+button {
+    background: #073642 !important;
+    color: #268bd2 !important;
+    border: 1px solid #268bd2 !important;
+}
+
+button:hover {
+    background: #268bd2 !important;
+    color: #002b36 !important;
+}
+
+a {
+    color: #268bd2 !important;
+}
+
+a:hover {
+    color: #b58900 !important;
+}
+
+pre, code {
+    background: #073642 !important;
+    color: #839496 !important;
+    border: 1px solid #268bd2 !important;
+}

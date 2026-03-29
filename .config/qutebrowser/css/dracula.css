@@ -1,0 +1,56 @@
+/* Dracula Theme - Dark purple vampire aesthetic */
+
+::-webkit-scrollbar {
+    width: 10px;
+    background: #282a36;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ff79c6;
+    border: 2px solid #282a36;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #bd93f9;
+}
+
+::selection {
+    background: #ff79c6;
+    color: #282a36;
+}
+
+input, textarea {
+    background-color: #3d3f4b !important;
+    color: #f8f8f2 !important;
+    border: 1px solid #ff79c6 !important;
+}
+
+input:focus, textarea:focus {
+    border-color: #bd93f9 !important;
+    box-shadow: 0 0 8px #bd93f9 !important;
+}
+
+button {
+    background: #3d3f4b !important;
+    color: #ff79c6 !important;
+    border: 1px solid #ff79c6 !important;
+}
+
+button:hover {
+    background: #ff79c6 !important;
+    color: #282a36 !important;
+}
+
+a {
+    color: #bd93f9 !important;
+}
+
+a:hover {
+    color: #ff79c6 !important;
+}
+
+pre, code {
+    background: #3d3f4b !important;
+    color: #f8f8f2 !important;
+    border: 1px solid #ff79c6 !important;
+}

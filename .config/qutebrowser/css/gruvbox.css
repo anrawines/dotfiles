@@ -1,0 +1,55 @@
+/* Gruvbox Theme - Retro warm colors */
+
+::-webkit-scrollbar {
+    width: 10px;
+    background: #282828;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #fabd2f;
+    border: 2px solid #282828;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #d65d0e;
+}
+
+::selection {
+    background: #fabd2f;
+    color: #282828;
+}
+
+input, textarea {
+    background-color: #3c3836 !important;
+    color: #ebdbb2 !important;
+    border: 1px solid #fabd2f !important;
+}
+
+input:focus, textarea:focus {
+    border-color: #d65d0e !important;
+}
+
+button {
+    background: #3c3836 !important;
+    color: #fabd2f !important;
+    border: 1px solid #fabd2f !important;
+}
+
+button:hover {
+    background: #fabd2f !important;
+    color: #282828 !important;
+}
+
+a {
+    color: #fabd2f !important;
+}
+
+a:hover {
+    color: #d65d0e !important;
+}
+
+pre, code {
+    background: #3c3836 !important;
+    color: #ebdbb2 !important;
+    border: 1px solid #fabd2f !important;
+}

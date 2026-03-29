@@ -1,0 +1,30 @@
+#!/bin/bash
+# Hledání subjektu v ARES / Rejstříku (IČO nebo Název)
+
+# Získej výběr (označený text)
+QUERY="${QUTE_SELECTED_TEXT}"
+
+# Odstraň mezery na začátku/konci
+QUERY=$(echo "$QUERY" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+
+# Pokud je prázdný, zeptej se uživatele (přes dmenu/rofi)
+if [ -z "$QUERY" ]; then
+    # Zde použijeme "dmenu" (pokud používáš rofi jako dmenu, bude to fungovat taky)
+    QUERY=$(echo "" | dmenu -p "Firma/IČO:")
+fi
+
+[ -z "$QUERY" ] && exit 1
+
+# Detekce IČO (8 číslic) - odstraníme případné mezery uvnitř čísla
+CLEAN_QUERY="${QUERY// /}"
+
+if [[ "$CLEAN_QUERY" =~ ^[0-9]{8}$ ]]; then
+    # Je to IČO -> přímý odkaz na detail
+    URL="https://ares.gov.cz/ekonomicke-subjekty?ico=${CLEAN_QUERY}"
+else
+    # Je to název -> vyhledávání názvu (URL encode mezer)
+    ENCODED_NAME="${QUERY// /%20}"
+    URL="https://ares.gov.cz/ekonomicke-subjekty?obchodniJmeno=${ENCODED_NAME}"
+fi
+
+echo "open -t $URL" >> "$QUTE_FIFO"

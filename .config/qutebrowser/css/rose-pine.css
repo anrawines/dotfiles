@@ -1,0 +1,107 @@
+/* Rosé Pine - All natural pine */
+/* Paleta: bg #191724, fg #9a7fa0, akcent #c4a7e7, růžová #ebbcba */
+
+::-webkit-scrollbar {
+    width: 10px;
+    background: #191724;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c4a7e7;
+    border: 2px solid #191724;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ebbcba;
+}
+
+::selection {
+    background: #c4a7e7;
+    color: #191724;
+}
+
+/* Inputy a textarey */
+input, textarea, select {
+    background-color: #26233a !important;
+    color: #9a7fa0 !important;
+    border: 1px solid #c4a7e7 !important;
+    border-radius: 4px !important;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: #ebbcba !important;
+    outline: none !important;
+    box-shadow: 0 0 4px #c4a7e744 !important;
+}
+
+/* Tlačítka */
+button {
+    background: #26233a !important;
+    color: #c4a7e7 !important;
+    border: 1px solid #c4a7e7 !important;
+    border-radius: 4px !important;
+}
+
+button:hover {
+    background: #c4a7e7 !important;
+    color: #191724 !important;
+}
+
+/* Odkazy */
+a {
+    color: #ebbcba !important;
+}
+
+a:hover {
+    color: #c4a7e7 !important;
+    text-decoration: underline !important;
+}
+
+a:visited {
+    color: #907a96 !important;
+}
+
+/* Kód */
+pre, code {
+    background: #110f1c !important;
+    color: #9ccfd8 !important;
+    border: 1px solid #26233a !important;
+    border-radius: 4px !important;
+}
+
+/* Horizontální oddělovač */
+hr {
+    border: none !important;
+    border-top: 1px solid #26233a !important;
+}
+
+/* Citace */
+blockquote {
+    border-left: 3px solid #ebbcba !important;
+    color: #524869 !important;
+    background: #110f1c !important;
+    padding-left: 1em !important;
+}
+
+/* Tabulky */
+table {
+    border-collapse: collapse !important;
+}
+
+th {
+    background: #26233a !important;
+    color: #c4a7e7 !important;
+    border: 1px solid #393354 !important;
+    padding: 6px 12px !important;
+}
+
+td {
+    background: #191724 !important;
+    color: #9a7fa0 !important;
+    border: 1px solid #26233a !important;
+    padding: 6px 12px !important;
+}
+
+tr:nth-child(even) td {
+    background: #110f1c !important;
+}

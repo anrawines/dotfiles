@@ -1,0 +1,107 @@
+/* Catppuccin - Vivid pink-purple variant */
+/* Paleta: bg #1e1e2e, fg #c4a0c8, akcent #ff5999, fialová #9d4edd */
+
+::-webkit-scrollbar {
+    width: 10px;
+    background: #1e1e2e;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ff5999;
+    border: 2px solid #1e1e2e;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #9d4edd;
+}
+
+::selection {
+    background: #ff5999;
+    color: #1e1e2e;
+}
+
+/* Inputy a textarey */
+input, textarea, select {
+    background-color: #302d41 !important;
+    color: #c4a0c8 !important;
+    border: 1px solid #ff5999 !important;
+    border-radius: 4px !important;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: #9d4edd !important;
+    outline: none !important;
+    box-shadow: 0 0 4px #ff599944 !important;
+}
+
+/* Tlačítka */
+button {
+    background: #302d41 !important;
+    color: #ff5999 !important;
+    border: 1px solid #ff5999 !important;
+    border-radius: 4px !important;
+}
+
+button:hover {
+    background: #ff5999 !important;
+    color: #1e1e2e !important;
+}
+
+/* Odkazy */
+a {
+    color: #ff5999 !important;
+}
+
+a:hover {
+    color: #9d4edd !important;
+    text-decoration: underline !important;
+}
+
+a:visited {
+    color: #8a3ab8 !important;
+}
+
+/* Kód */
+pre, code {
+    background: #181825 !important;
+    color: #a6e3a1 !important;
+    border: 1px solid #302d41 !important;
+    border-radius: 4px !important;
+}
+
+/* Horizontální oddělovač */
+hr {
+    border: none !important;
+    border-top: 1px solid #302d41 !important;
+}
+
+/* Citace */
+blockquote {
+    border-left: 3px solid #ff5999 !important;
+    color: #5a4a6a !important;
+    background: #181825 !important;
+    padding-left: 1em !important;
+}
+
+/* Tabulky */
+table {
+    border-collapse: collapse !important;
+}
+
+th {
+    background: #302d41 !important;
+    color: #ff5999 !important;
+    border: 1px solid #4a3a5a !important;
+    padding: 6px 12px !important;
+}
+
+td {
+    background: #1e1e2e !important;
+    color: #c4a0c8 !important;
+    border: 1px solid #302d41 !important;
+    padding: 6px 12px !important;
+}
+
+tr:nth-child(even) td {
+    background: #181825 !important;
+}

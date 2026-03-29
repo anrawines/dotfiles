@@ -1,0 +1,107 @@
+/* Tokyo Night - Neon city nights */
+/* Paleta: bg #1a1b26, fg #5d6894, akcent #7aa2f7, fialová #bb9af7 */
+
+::-webkit-scrollbar {
+    width: 10px;
+    background: #1a1b26;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #7aa2f7;
+    border: 2px solid #1a1b26;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #bb9af7;
+}
+
+::selection {
+    background: #7aa2f7;
+    color: #1a1b26;
+}
+
+/* Inputy a textarey */
+input, textarea, select {
+    background-color: #24283b !important;
+    color: #5d6894 !important;
+    border: 1px solid #7aa2f7 !important;
+    border-radius: 4px !important;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: #bb9af7 !important;
+    outline: none !important;
+    box-shadow: 0 0 6px #bb9af744 !important;
+}
+
+/* Tlačítka */
+button {
+    background: #24283b !important;
+    color: #7aa2f7 !important;
+    border: 1px solid #7aa2f7 !important;
+    border-radius: 4px !important;
+}
+
+button:hover {
+    background: #7aa2f7 !important;
+    color: #1a1b26 !important;
+}
+
+/* Odkazy */
+a {
+    color: #7aa2f7 !important;
+}
+
+a:hover {
+    color: #bb9af7 !important;
+    text-decoration: underline !important;
+}
+
+a:visited {
+    color: #4a5a8a !important;
+}
+
+/* Kód */
+pre, code {
+    background: #13141f !important;
+    color: #9ece6a !important;
+    border: 1px solid #24283b !important;
+    border-radius: 4px !important;
+}
+
+/* Horizontální oddělovač */
+hr {
+    border: none !important;
+    border-top: 1px solid #24283b !important;
+}
+
+/* Citace */
+blockquote {
+    border-left: 3px solid #7aa2f7 !important;
+    color: #2e3354 !important;
+    background: #13141f !important;
+    padding-left: 1em !important;
+}
+
+/* Tabulky */
+table {
+    border-collapse: collapse !important;
+}
+
+th {
+    background: #24283b !important;
+    color: #7aa2f7 !important;
+    border: 1px solid #2e3354 !important;
+    padding: 6px 12px !important;
+}
+
+td {
+    background: #1a1b26 !important;
+    color: #5d6894 !important;
+    border: 1px solid #24283b !important;
+    padding: 6px 12px !important;
+}
+
+tr:nth-child(even) td {
+    background: #13141f !important;
+}

@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# 1. Kontrola, zda je něco vybráno
+if [ -z "$QUTE_SELECTED_TEXT" ]; then
+    notify-send "Chyba" "Nebyl vybrán žádný text."
+    exit 1
+fi
+
+# 2. Vytvoření dočasného souboru (formát RTF je bezpečnější než čistý TXT pro Word)
+TEMP_FILE=$(mktemp --suffix=.rtf)
+
+# 3. Zapsání textu do souboru
+# Použijeme jednoduchou hlavičku RTF, aby to vypadalo lépe, nebo prostý text.
+# Pro jednoduchost zde použijeme prostý text, LibreOffice ho přečte.
+echo "$QUTE_SELECTED_TEXT" > "$TEMP_FILE"
+
+# Pokud chceš, aby se text vložil do existující šablony, musel bys použít 'sed' a nahradit placeholder.
+# Tady jen otevřeme nový dokument s tímto textem.
+
+# 4. Spuštění LibreOffice Writer
+# Používáme 'setsid' a '&', aby se proces oddělil od Qutebrowseru a neblokoval ho.
+setsid libreoffice --writer "$TEMP_FILE" > /dev/null 2>&1 &
+
+# 5. Notifikace
+notify-send "Writer" "Otevírám vybraný text v LibreOffice..."

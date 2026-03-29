@@ -1,0 +1,107 @@
+/* Material Dark - Warm amber tones */
+/* Paleta: bg #212121, fg #c8b99a, akcent #ffab40, oranžová #ff7043 */
+
+::-webkit-scrollbar {
+    width: 10px;
+    background: #212121;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ffab40;
+    border: 2px solid #212121;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ff7043;
+}
+
+::selection {
+    background: #ffab40;
+    color: #212121;
+}
+
+/* Inputy a textarey */
+input, textarea, select {
+    background-color: #2e2e2e !important;
+    color: #c8b99a !important;
+    border: 1px solid #ffab40 !important;
+    border-radius: 2px !important;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: #ff7043 !important;
+    outline: none !important;
+    box-shadow: 0 0 4px #ffab4044 !important;
+}
+
+/* Tlačítka */
+button {
+    background: #2e2e2e !important;
+    color: #ffab40 !important;
+    border: 1px solid #ffab40 !important;
+    border-radius: 2px !important;
+}
+
+button:hover {
+    background: #ffab40 !important;
+    color: #212121 !important;
+}
+
+/* Odkazy */
+a {
+    color: #ffab40 !important;
+}
+
+a:hover {
+    color: #ff7043 !important;
+    text-decoration: underline !important;
+}
+
+a:visited {
+    color: #bf8040 !important;
+}
+
+/* Kód */
+pre, code {
+    background: #1a1a1a !important;
+    color: #aed581 !important;
+    border: 1px solid #2e2e2e !important;
+    border-radius: 2px !important;
+}
+
+/* Horizontální oddělovač */
+hr {
+    border: none !important;
+    border-top: 1px solid #3a3a3a !important;
+}
+
+/* Citace */
+blockquote {
+    border-left: 3px solid #ffab40 !important;
+    color: #7a6a58 !important;
+    background: #1a1a1a !important;
+    padding-left: 1em !important;
+}
+
+/* Tabulky */
+table {
+    border-collapse: collapse !important;
+}
+
+th {
+    background: #2e2e2e !important;
+    color: #ffab40 !important;
+    border: 1px solid #3a3a3a !important;
+    padding: 6px 12px !important;
+}
+
+td {
+    background: #212121 !important;
+    color: #c8b99a !important;
+    border: 1px solid #2e2e2e !important;
+    padding: 6px 12px !important;
+}
+
+tr:nth-child(even) td {
+    background: #1a1a1a !important;
+}

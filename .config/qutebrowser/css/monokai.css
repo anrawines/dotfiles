@@ -1,0 +1,56 @@
+/* Monokai Theme - Sublime Text classic */
+
+::-webkit-scrollbar {
+    width: 10px;
+    background: #272822;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #a6e22e;
+    border: 2px solid #272822;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #f92672;
+}
+
+::selection {
+    background: #a6e22e;
+    color: #272822;
+}
+
+input, textarea {
+    background-color: #3e3d32 !important;
+    color: #f8f8f2 !important;
+    border: 1px solid #a6e22e !important;
+}
+
+input:focus, textarea:focus {
+    border-color: #66d9ef !important;
+    box-shadow: 0 0 5px #66d9ef !important;
+}
+
+button {
+    background: #3e3d32 !important;
+    color: #a6e22e !important;
+    border: 1px solid #a6e22e !important;
+}
+
+button:hover {
+    background: #a6e22e !important;
+    color: #272822 !important;
+}
+
+a {
+    color: #66d9ef !important;
+}
+
+a:hover {
+    color: #f92672 !important;
+}
+
+pre, code {
+    background: #3e3d32 !important;
+    color: #f8f8f2 !important;
+    border: 1px solid #a6e22e !important;
+}

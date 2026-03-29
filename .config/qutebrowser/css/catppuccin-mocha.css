@@ -1,0 +1,107 @@
+/* Catppuccin Mocha - Soothing coffee tones */
+/* Paleta: bg #1e1e2e, fg #b9a0e8, akcent #cba6f7, modrá #89b4fa */
+
+::-webkit-scrollbar {
+    width: 10px;
+    background: #1e1e2e;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cba6f7;
+    border: 2px solid #1e1e2e;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #b48ee0;
+}
+
+::selection {
+    background: #cba6f7;
+    color: #1e1e2e;
+}
+
+/* Inputy a textarey */
+input, textarea, select {
+    background-color: #313244 !important;
+    color: #b9a0e8 !important;
+    border: 1px solid #cba6f7 !important;
+    border-radius: 4px !important;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: #89b4fa !important;
+    outline: none !important;
+    box-shadow: 0 0 4px #89b4fa44 !important;
+}
+
+/* Tlačítka */
+button {
+    background: #313244 !important;
+    color: #cba6f7 !important;
+    border: 1px solid #cba6f7 !important;
+    border-radius: 4px !important;
+}
+
+button:hover {
+    background: #cba6f7 !important;
+    color: #1e1e2e !important;
+}
+
+/* Odkazy */
+a {
+    color: #89b4fa !important;
+}
+
+a:hover {
+    color: #cba6f7 !important;
+    text-decoration: underline !important;
+}
+
+a:visited {
+    color: #b48ee0 !important;
+}
+
+/* Kód */
+pre, code {
+    background: #181825 !important;
+    color: #a6e3a1 !important;
+    border: 1px solid #313244 !important;
+    border-radius: 4px !important;
+}
+
+/* Horizontální oddělovač */
+hr {
+    border: none !important;
+    border-top: 1px solid #313244 !important;
+}
+
+/* Citace */
+blockquote {
+    border-left: 3px solid #cba6f7 !important;
+    color: #6c7086 !important;
+    background: #181825 !important;
+    padding-left: 1em !important;
+}
+
+/* Tabulky */
+table {
+    border-collapse: collapse !important;
+}
+
+th {
+    background: #313244 !important;
+    color: #cba6f7 !important;
+    border: 1px solid #45475a !important;
+    padding: 6px 12px !important;
+}
+
+td {
+    background: #1e1e2e !important;
+    color: #b9a0e8 !important;
+    border: 1px solid #313244 !important;
+    padding: 6px 12px !important;
+}
+
+tr:nth-child(even) td {
+    background: #181825 !important;
+}

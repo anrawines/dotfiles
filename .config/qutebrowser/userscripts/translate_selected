@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [ -z "$QUTE_SELECTED_TEXT" ]; then
+    rofi -e "Nebyl vybrán žádný text"
+    exit 1
+fi
+
+TRANSLATION=$(timeout 10s trans -no-auto -b -t cs "$QUTE_SELECTED_TEXT" 2>&1)
+
+if [ $? -ne 0 ] || [ -z "$TRANSLATION" ]; then
+    rofi -e "Nepodařilo se přeložit text"
+    exit 1
+fi
+
+# Použij -e pro zobrazení textu
+rofi -e "$TRANSLATION"

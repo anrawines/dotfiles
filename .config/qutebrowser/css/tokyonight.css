@@ -1,0 +1,56 @@
+/* Tokyo Night Theme - Neon city nights */
+
+::-webkit-scrollbar {
+    width: 10px;
+    background: #1a1b26;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #7aa2f7;
+    border: 2px solid #1a1b26;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #bb9af7;
+}
+
+::selection {
+    background: #7aa2f7;
+    color: #1a1b26;
+}
+
+input, textarea {
+    background-color: #292e42 !important;
+    color: #c0caf5 !important;
+    border: 1px solid #7aa2f7 !important;
+}
+
+input:focus, textarea:focus {
+    border-color: #bb9af7 !important;
+    box-shadow: 0 0 8px #bb9af7 !important;
+}
+
+button {
+    background: #292e42 !important;
+    color: #7aa2f7 !important;
+    border: 1px solid #7aa2f7 !important;
+}
+
+button:hover {
+    background: #7aa2f7 !important;
+    color: #1a1b26 !important;
+}
+
+a {
+    color: #7aa2f7 !important;
+}
+
+a:hover {
+    color: #bb9af7 !important;
+}
+
+pre, code {
+    background: #292e42 !important;
+    color: #c0caf5 !important;
+    border: 1px solid #7aa2f7 !important;
+}

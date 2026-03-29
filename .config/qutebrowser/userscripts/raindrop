@@ -1,0 +1,3 @@
+#!/bin/bash
+# Uloží aktuální stránku do Raindrop.io
+xdg-open "https://app.raindrop.io/add?link=$QUTE_URL&title=$QUTE_TITLE"

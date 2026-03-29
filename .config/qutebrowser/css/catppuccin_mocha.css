@@ -1,0 +1,55 @@
+/* Catppuccin Mocha Theme - Soothing coffee tones */
+
+::-webkit-scrollbar {
+    width: 10px;
+    background: #1e1e2e;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #89b4fa;
+    border: 2px solid #1e1e2e;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #f5c2e7;
+}
+
+::selection {
+    background: #89b4fa;
+    color: #1e1e2e;
+}
+
+input, textarea {
+    background-color: #313244 !important;
+    color: #cdd6f4 !important;
+    border: 1px solid #89b4fa !important;
+}
+
+input:focus, textarea:focus {
+    border-color: #f5c2e7 !important;
+}
+
+button {
+    background: #313244 !important;
+    color: #89b4fa !important;
+    border: 1px solid #89b4fa !important;
+}
+
+button:hover {
+    background: #89b4fa !important;
+    color: #1e1e2e !important;
+}
+
+a {
+    color: #89b4fa !important;
+}
+
+a:hover {
+    color: #f5c2e7 !important;
+}
+
+pre, code {
+    background: #313244 !important;
+    color: #cdd6f4 !important;
+    border: 1px solid #89b4fa !important;
+}

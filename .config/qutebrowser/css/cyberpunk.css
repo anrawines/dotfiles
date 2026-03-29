@@ -1,0 +1,61 @@
+/* Cyberpunk Theme - Neon streets aesthetic */
+
+::-webkit-scrollbar {
+    width: 10px;
+    background: #101010;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #fcee0a;
+    border: 2px solid #101010;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ff007c;
+}
+
+/* Selection colors */
+::selection {
+    background: #ff007c;
+    color: #000000;
+}
+
+/* Input fields */
+input, textarea {
+    background-color: #202020 !important;
+    color: #eaeaea !important;
+    border: 1px solid #fcee0a !important;
+}
+
+input:focus, textarea:focus {
+    border-color: #ff007c !important;
+    box-shadow: 0 0 10px #ff007c !important;
+}
+
+/* Buttons */
+button {
+    background: #202020 !important;
+    color: #fcee0a !important;
+    border: 1px solid #fcee0a !important;
+}
+
+button:hover {
+    background: #fcee0a !important;
+    color: #000000 !important;
+}
+
+/* Links */
+a {
+    color: #fcee0a !important;
+}
+
+a:hover {
+    color: #ff007c !important;
+}
+
+/* Code blocks */
+pre, code {
+    background: #202020 !important;
+    color: #fcee0a !important;
+    border: 1px solid #fcee0a !important;
+}
