@@ -26,6 +26,15 @@ if [ -d "$HOME/.local/bin" ]; then
     export PATH="$HOME/.local/bin:$PATH"
 fi
 
+# Language-specific
+if [ -d "$HOME/.cargo/bin" ]; then
+    export PATH="$HOME/.cargo/bin:$PATH"
+fi
+
+if [ -d "$HOME/.go/bin" ]; then
+    export PATH="$HOME/.go/bin:$PATH"
+fi
+
 # This finds every directory inside ~/.local/bin and adds it to PATH
 for d in $HOME/.local/bin/*/; do
     export PATH="$PATH:$d"

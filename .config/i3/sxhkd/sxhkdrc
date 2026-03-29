@@ -452,11 +452,11 @@ XF86AudioMute
 	 
 # Volume Up ( Media Key )
 XF86AudioRaiseVolume
-	pactl set-sink-volume @DEFAULT_SINK@ +5%
+	pactl set-sink-volume @DEFAULT_SINK@ +3% && notify-send -t 2000 -h string:x-canonical-private-synchronous:volume "Vol: $(amixer get Master | grep -oP '\d+%' | head -1)"
 
 # Volume Down ( Media Key )
 XF86AudioLowerVolume
-	pactl set-sink-volume @DEFAULT_SINK@ -5%
+	pactl set-sink-volume @DEFAULT_SINK@ -3% && notify-send -t 2000 -h string:x-canonical-private-synchronous:volume "Vol: $(amixer get Master | grep -oP '\d+%' | head -1)"
 
 # Volume Down
 super + F11
