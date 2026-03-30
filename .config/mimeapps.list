@@ -43,3 +43,4 @@ application/x-ms-shortcut=geany.desktop;
 application/epub+zip=org.pwmt.zathura-pdf-poppler.desktop;
 application/octet-stream=geany.desktop;
 application/xml=geany.desktop;
+text/x-csrc=geany.desktop;
